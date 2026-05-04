@@ -1,0 +1,41 @@
+{
+  "tier1": [
+    "#AI",
+    "#DataScience",
+    "#MachineLearning",
+    "#ArtificialIntelligence",
+    "#Data"
+  ],
+  "tier2": [
+    "#GenerativeAI",
+    "#LLM",
+    "#DataEngineering",
+    "#AgenticAI",
+    "#AIAgents"
+  ],
+  "tier3": [
+    "#MLOps",
+    "#DataStrategy",
+    "#AIInProduction",
+    "#PromptEngineering",
+    "#RAG",
+    "#LLMOps",
+    "#DataPipelines",
+    "#VectorDatabase"
+  ],
+  "conference": [
+    "#DataConference",
+    "#TechTalks",
+    "#AIConference",
+    "#DataSummit",
+    "#MLConference",
+    "#KeynoteSummary"
+  ],
+  "community": [
+    "#DataCommunity",
+    "#TechLeadership",
+    "#Innovation",
+    "#FutureOfWork",
+    "#DigitalTransformation"
+  ]
+}

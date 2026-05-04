@@ -1,0 +1,98 @@
+PERSONA AND VOICE:
+{{ persona }}
+
+---
+Create a LinkedIn carousel post from insights gathered at {{ conference_name }}{% if conference_date %} ({{ conference_date }}){% endif %}.
+
+SYNTHESIS:
+{{ conference_summary }}
+
+Suggested hook: {{ best_hook }}
+
+Themes:
+{% for theme in themes %}
+{{ loop.index }}. {{ theme.title }} [{{ theme.novelty }}]: {{ theme.insight }}
+   Evidence: {{ theme.evidence | join(' | ') }}
+{% endfor %}
+
+Hot Takes:
+{% if hot_takes %}
+{% for ht in hot_takes %}
+🔥 {{ ht.claim }} [{{ ht.source }}] — {{ ht.why_surprising }}
+{% endfor %}
+{% else %}
+None — use the most counterintuitive theme as the hook.
+{% endif %}
+
+Top Quotes:
+{% for q in top_quotes[:3] %}
+- {{ q }}
+{% endfor %}
+
+Top Data Points:
+{% for dp in top_data_points[:3] %}
+- {{ dp }}
+{% endfor %}
+
+---
+CAROUSEL REQUIREMENTS:
+- 8–12 slides total
+- Mix slide types: title, content (insights), stat (data points), quote (speaker quotes), cta
+- Each slide: under 50 words of visible text — people swipe fast
+- Slide headlines must be specific and punchy — no vague headers like "Key Insights"
+- Content slides: max 3 bullets, each under 15 words
+- Final slide: clear CTA + follow prompt
+
+For EVERY content/stat/quote slide include an `image_prompt`: one-sentence DALL-E prompt for a supporting background or accent graphic.
+Style rules for image prompts: dark background (#0D1117), LinkedIn blue accents, professional, abstract/data-viz aesthetic, NO text in the generated image.
+
+Also generate:
+- A `caption`: 100–150 word LinkedIn post text to accompany the carousel (hook + context + swipe prompt)
+- `hashtags`: best hashtag string for this content
+
+---
+Return ONLY valid JSON — no markdown fences, no preamble. Exact format:
+
+{
+  "slides": [
+    {
+      "type": "title",
+      "headline": "...",
+      "subtitle": "{{ conference_name }}, {{ conference_date }}",
+      "visual_note": "description of ideal background visual"
+    },
+    {
+      "type": "content",
+      "slide_number": 1,
+      "headline": "...",
+      "bullets": ["...", "...", "..."],
+      "visual_note": "...",
+      "image_prompt": "DALL-E prompt for supporting visual..."
+    },
+    {
+      "type": "stat",
+      "slide_number": 2,
+      "stat": "73%",
+      "context": "...",
+      "source": "Speaker Name, Company",
+      "visual_note": "...",
+      "image_prompt": "..."
+    },
+    {
+      "type": "quote",
+      "slide_number": 3,
+      "quote": "...",
+      "attribution": "Speaker Name, Role @ Company",
+      "visual_note": "...",
+      "image_prompt": "..."
+    },
+    {
+      "type": "cta",
+      "headline": "...",
+      "sub": "...",
+      "visual_note": "..."
+    }
+  ],
+  "caption": "Full LinkedIn caption text...",
+  "hashtags": "{{ hashtags }}"
+}

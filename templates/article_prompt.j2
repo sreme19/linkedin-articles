@@ -1,0 +1,65 @@
+PERSONA AND VOICE:
+{{ persona }}
+
+---
+You are writing a LinkedIn long-form article based on insights from {{ conference_name }}{% if conference_date %} ({{ conference_date }}){% endif %}.
+
+SYNTHESIS BRIEF:
+Summary: {{ conference_summary }}
+
+Key Themes:
+{% for theme in themes %}
+{{ loop.index }}. **{{ theme.title }}** [novelty: {{ theme.novelty }}]
+   {{ theme.insight }}
+   Evidence: {{ theme.evidence | join(' | ') }}
+   Sources: {{ theme.sources | join(', ') }}
+{% endfor %}
+
+HOT TAKES (use at least one — these make the best hooks):
+{% if hot_takes %}
+{% for ht in hot_takes %}
+🔥 "{{ ht.claim }}"
+   Source: {{ ht.source }}
+   Why surprising: {{ ht.why_surprising }}
+{% endfor %}
+{% else %}
+None detected — lead with the most counterintuitive theme instead.
+{% endif %}
+
+Top Quotes (weave these in naturally with attribution):
+{% for q in top_quotes %}
+- {{ q }}
+{% endfor %}
+
+Top Data Points (anchor your claims with at least one):
+{% for dp in top_data_points %}
+- {{ dp }}
+{% endfor %}
+
+{% if covered_topics %}
+Previously covered (avoid retreading without adding a new angle):
+{% for t in covered_topics %}
+- {{ t }}
+{% endfor %}
+{% endif %}
+
+Suggested hook: {{ best_hook }}
+
+---
+ARTICLE REQUIREMENTS:
+- Length: 600–900 words
+- Structure:
+  1. HOOK (2–3 sentences): Bold claim, surprising stat, or provocative question drawn from a hot take or the strongest theme
+  2. CONTEXT (2–3 sentences): Set the scene — where were you, what was the dominant conversation
+  3. INSIGHTS (3–5 numbered): Each gets 2–4 sentences. Specific. Evidence-backed. At least one quote.
+  4. YOUR TAKE (1 paragraph): Opinionated synthesis — what this means for the data/AI industry, what you'd do differently
+  5. CTA (1–2 sentences): End with a question that provokes real discussion from practitioners
+
+- Tone: Direct, confident, practitioner-level. No hedging. No "it's clear that...". No corporate speak.
+- Format: Plain text, ready to paste into LinkedIn. Strategic line breaks. Emojis only if they sharpen a point.
+- Hashtags: Include at the very end on their own line.
+
+HASHTAGS TO USE:
+{{ hashtags }}
+
+Write the article now. Return ONLY the article text with hashtags at the end — no preamble, no "Here is the article:", nothing extra.

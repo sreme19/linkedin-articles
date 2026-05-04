@@ -1,0 +1,35 @@
+# Conference Artefact Manifest
+# Run `python main.py init` to generate this file, then fill it in before processing.
+
+# --- Required ---
+conference_name: "Data + AI Summit 2025"
+conference_date: "2025-05-15"
+
+# --- Optional but improves output quality ---
+location: "San Francisco, CA"
+conference_url: "https://example.com"
+
+# Default speaker for slides without a specific speaker assigned
+speaker: "Various Speakers"
+
+# Named speakers at this conference
+speakers:
+  - name: "Jane Smith"
+    role: "Head of AI"
+    company: "Databricks"
+  - name: "John Doe"
+    role: "Principal Engineer"
+    company: "dbt Labs"
+
+# Map specific filenames to their speaker (overrides default above)
+# file_speakers:
+#   "smith_keynote.pdf": "Jane Smith, Head of AI @ Databricks"
+#   "doe_slides.png": "John Doe, Principal Engineer @ dbt Labs"
+
+# Limit pages extracted per PDF (keeps costs reasonable; default: 30)
+max_pages_per_pdf: 30
+
+# Brief notes about the conference theme or your personal focus
+notes: |
+  Focus on agentic AI, data mesh, and real-time pipelines.
+  Key theme: production readiness of AI systems.

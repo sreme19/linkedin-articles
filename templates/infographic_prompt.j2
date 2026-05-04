@@ -1,0 +1,60 @@
+PERSONA AND VOICE:
+{{ persona }}
+
+---
+Design an infographic concept from insights gathered at {{ conference_name }}{% if conference_date %} ({{ conference_date }}){% endif %}.
+
+SYNTHESIS:
+{{ conference_summary }}
+
+Themes:
+{% for theme in themes %}
+- {{ theme.title }}: {{ theme.insight }}
+{% endfor %}
+
+Data Points:
+{% for dp in top_data_points %}
+- {{ dp }}
+{% endfor %}
+
+Hot Takes:
+{% if hot_takes %}
+{% for ht in hot_takes %}
+- {{ ht.claim }}
+{% endfor %}
+{% endif %}
+
+---
+TASK:
+Design the single most impactful infographic from these insights. Choose the visual format that best fits the data:
+- 2×2 matrix (positioning/comparison)
+- Flow diagram (process/sequence)
+- Comparison table (before/after, tool A vs B)
+- Taxonomy / hierarchy (classification of concepts)
+- Timeline (evolution of a trend)
+- Stat-focused layout (big numbers + context)
+
+Return the following sections exactly:
+
+## INFOGRAPHIC CONCEPT
+[Visual type and what it shows in 2 sentences]
+
+## CONTENT STRUCTURE
+[Describe the layout in detail: sections, labels, data to display, what goes where]
+
+## IMAGE GENERATION PROMPT
+Generate a comprehensive DALL-E / ChatGPT image prompt (150–200 words) that specifies:
+- Visual style: professional, dark-themed data visualization, LinkedIn-appropriate
+- Exact layout and structure
+- Color palette: #0D1117 background, #0077B5 LinkedIn blue accents, #FFFFFF primary text, #8B949E secondary text
+- Specific text labels, numbers, and section names to include
+- Square format (1080×1080px)
+- No photorealistic elements — clean vector/graphic style
+- Do NOT ask for faces, logos, or copyrighted branding
+
+## LINKEDIN CAPTION
+[150–200 word caption to accompany the infographic.
+Structure: bold hook → what the visual shows → 2–3 key takeaways → question for engagement.
+Tone: practitioner-level, direct, no hype.]
+
+{{ hashtags }}

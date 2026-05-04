@@ -1,0 +1,18 @@
+.env
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Keep directory stubs, ignore all content
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/output/*
+!data/output/.gitkeep
