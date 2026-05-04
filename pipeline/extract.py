@@ -163,8 +163,34 @@ def _dedupe_list(lst: list) -> list:
     return result
 
 
+_MAX_IMAGE_BYTES = int(5 * 1024 * 1024 * 3 / 4) - 65536  # API measures base64 size; raw limit ≈ 3.69 MB
+
+
+def _encode_file_resized(path: Path) -> Tuple[str, str]:
+    with open(path, "rb") as f:
+        raw = f.read()
+    if len(raw) <= _MAX_IMAGE_BYTES:
+        media_map = {".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".webp": "image/webp"}
+        media_type = media_map.get(path.suffix.lower(), "image/jpeg")
+        return base64.standard_b64encode(raw).decode("utf-8"), media_type
+    img = Image.open(path).convert("RGB")
+    quality = 85
+    scale = 1.0
+    while True:
+        w, h = int(img.width * scale), int(img.height * scale)
+        resized = img.resize((w, h), Image.LANCZOS) if scale < 1.0 else img
+        buf = io.BytesIO()
+        resized.save(buf, format="JPEG", quality=quality)
+        if buf.tell() <= _MAX_IMAGE_BYTES:
+            return base64.standard_b64encode(buf.getvalue()).decode("utf-8"), "image/jpeg"
+        if quality > 60:
+            quality -= 10
+        else:
+            scale *= 0.8
+
+
 def _extract_image_file(path: Path, context: Dict) -> Dict:
-    b64, media_type = _encode_file(path)
+    b64, media_type = _encode_file_resized(path)
     result = _extract_via_vision(b64, media_type, context)
     result["source_file"] = str(path)
     result["source_type"] = "image"
@@ -198,12 +224,16 @@ def _extract_pdf(path: Path, context: Dict) -> Dict:
         console.print(f"    page {i + 1}/{total}", end="\r")
         page_ctx = {**context, "page_number": i + 1}
 
-        if i < len(pil_images):
-            b64, mt = _encode_pil(pil_images[i])
-            page_data = _extract_via_vision(b64, mt, page_ctx)
-        elif i < len(text_pages) and text_pages[i].strip():
-            page_data = _extract_via_text(text_pages[i], page_ctx)
-        else:
+        try:
+            if i < len(pil_images):
+                b64, mt = _encode_pil(pil_images[i])
+                page_data = _extract_via_vision(b64, mt, page_ctx)
+            elif i < len(text_pages) and text_pages[i].strip():
+                page_data = _extract_via_text(text_pages[i], page_ctx)
+            else:
+                continue
+        except Exception as e:
+            console.print(f"\n  [yellow]Skipped page {i + 1}: {e}[/yellow]")
             continue
 
         page_data["page"] = i + 1

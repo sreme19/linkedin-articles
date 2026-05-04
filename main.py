@@ -10,7 +10,8 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 
-load_dotenv()
+# Explicitly load .env from the project root so it works regardless of cwd
+load_dotenv(Path(__file__).parent / ".env", override=True)
 
 console = Console()
 
@@ -52,7 +53,11 @@ def cli():
     "--no-review", is_flag=True, default=False,
     help="Skip human review gates — useful for automation.",
 )
-def run(input_path, manifest, fmt, output_dir, no_review):
+@click.option(
+    "--sample", "-n", default=0, type=int,
+    help="Randomly sample N files from the input (0 = use all).",
+)
+def run(input_path, manifest, fmt, output_dir, no_review, sample):
     """Process conference artefacts and generate LinkedIn content."""
 
     if not os.getenv("ANTHROPIC_API_KEY"):
@@ -62,7 +67,11 @@ def run(input_path, manifest, fmt, output_dir, no_review):
         )
         sys.exit(1)
 
-    from pipeline.ingest import collect_files, deduplicate, load_manifest
+    from pipeline.ingest import (
+        collect_files, group_by_event, select_event,
+        sample_files, load_seen_hashes, filter_new_files,
+        mark_processed, load_manifest,
+    )
     from pipeline.extract import extract_artifact
     from pipeline.synthesize import synthesize
     from pipeline.format_recommender import recommend_and_confirm
@@ -75,15 +84,27 @@ def run(input_path, manifest, fmt, output_dir, no_review):
     manifest_data = load_manifest(manifest)
     conference = manifest_data.get("conference_name", "Unknown Conference")
 
-    files = collect_files(input_path)
-    if not files:
+    all_files = collect_files(input_path)
+    if not all_files:
         console.print(f"[red]No supported files found at: {input_path}[/red]")
         sys.exit(1)
 
-    console.print(f"Found [green]{len(files)}[/green] file(s) in {input_path}")
+    console.print(f"Found [green]{len(all_files)}[/green] file(s) in {input_path}")
+
+    # Group by event date and let user pick (or auto-select most recent)
+    groups = group_by_event(all_files)
+    if len(groups) > 1:
+        files = select_event(groups, no_review)
+    else:
+        files = all_files
+
+    # Optional random sample
+    if sample > 0:
+        files = sample_files(files, sample)
 
     processed_dir = DATA_DIR / "processed"
-    new_files = deduplicate(files, processed_dir)
+    seen, hashes_file = load_seen_hashes(processed_dir)
+    new_files = filter_new_files(files, seen)
 
     if not new_files:
         console.print("[yellow]All files already processed. Delete data/processed/seen_hashes.json to re-process.[/yellow]")
@@ -95,21 +116,32 @@ def run(input_path, manifest, fmt, output_dir, no_review):
     console.print(Panel("[bold blue]Step 2 / 6 — Extracting content[/bold blue]"))
 
     artifacts = []
+    skipped = 0
     image_count = 0
     file_speakers = manifest_data.get("file_speakers", {})
 
-    for f in new_files:
+    for f, file_hash in new_files:
         ctx = manifest_data.copy()
         if f.name in file_speakers:
             ctx["speaker"] = file_speakers[f.name]
 
-        artifact = extract_artifact(f, ctx)
+        try:
+            artifact = extract_artifact(f, ctx)
+        except Exception as e:
+            console.print(f"  [yellow]Skipped {f.name}: {e}[/yellow]")
+            skipped += 1
+            continue
+
         if artifact:
             artifacts.append(artifact)
+            mark_processed(file_hash, f, hashes_file, seen)
             if artifact.get("source_type") == "image":
                 image_count += 1
             elif artifact.get("source_type") == "pdf":
                 image_count += artifact.get("page_count", 0)
+
+    if skipped:
+        console.print(f"[yellow]Skipped {skipped} file(s) due to errors.[/yellow]")
 
     if not artifacts:
         console.print("[red]No content could be extracted from the provided files.[/red]")
