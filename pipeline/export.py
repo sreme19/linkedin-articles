@@ -89,13 +89,17 @@ def _export_infographic(data: Dict, output_dir: Path) -> Optional[str]:
         collecting = False
         prompt_lines = ["## Infographic — Image Generation Prompt"]
         for line in lines:
-            if any(k in line.upper() for k in ["IMAGE GENERATION PROMPT", "DALL-E PROMPT"]):
+            upper = line.upper().strip()
+            if any(k in upper for k in ["IMAGE GENERATION PROMPT", "DALL-E PROMPT", "DALL-E/"]):
                 collecting = True
+                continue
+            # Stop when the next ## section starts (after we've begun collecting)
+            if collecting and upper.startswith("##"):
+                break
             if collecting:
                 prompt_lines.append(line)
-            if collecting and line.strip() == "" and len(prompt_lines) > 5:
-                break
-        return "\n".join(prompt_lines)
+        if len(prompt_lines) > 1:
+            return "\n".join(prompt_lines)
 
     return f"## Infographic\n\n{content[:500]}"
 

@@ -12,7 +12,7 @@ Suggested hook: {{ best_hook }}
 Themes:
 {% for theme in themes %}
 {{ loop.index }}. {{ theme.title }} [{{ theme.novelty }}]: {{ theme.insight }}
-   Evidence: {{ theme.evidence | join(' | ') }}
+   Evidence: {{ (theme.evidence or []) | join(' | ') }}
 {% endfor %}
 
 Hot Takes:

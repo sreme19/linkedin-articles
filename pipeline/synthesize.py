@@ -76,7 +76,7 @@ def synthesize(artifacts: List[Dict], manifest: Dict, topics_log: Dict) -> Dict:
         summaries.append(
             {
                 "id": i + 1,
-                "source": Path_stem(art.get("source_file", "")),
+                "source": _path_stem(art.get("source_file", "")),
                 "title": art.get("title", ""),
                 "key_points": art.get("key_points", [])[:6],
                 "data_points": art.get("data_points", [])[:4],
@@ -132,6 +132,6 @@ def synthesize(artifacts: List[Dict], manifest: Dict, topics_log: Dict) -> Dict:
     }
 
 
-def Path_stem(filepath: str) -> str:
+def _path_stem(filepath: str) -> str:
     from pathlib import Path as _Path
     return _Path(filepath).name if filepath else ""

@@ -11,8 +11,8 @@ Key Themes:
 {% for theme in themes %}
 {{ loop.index }}. **{{ theme.title }}** [novelty: {{ theme.novelty }}]
    {{ theme.insight }}
-   Evidence: {{ theme.evidence | join(' | ') }}
-   Sources: {{ theme.sources | join(', ') }}
+   Evidence: {{ (theme.evidence or []) | join(' | ') }}
+   Sources: {{ (theme.sources or []) | join(', ') }}
 {% endfor %}
 
 HOT TAKES (use at least one — these make the best hooks):

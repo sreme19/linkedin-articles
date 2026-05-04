@@ -236,7 +236,7 @@ def _format_synthesis(synthesis: dict) -> str:
         for t in themes:
             c = colour.get(t.get("novelty", "medium"), "white")
             covered = " [dim](covered before)[/dim]" if t.get("previously_covered") else ""
-            lines.append(f"  • [{c}]{t['title']}[/{c}]{covered} — {t['insight']}")
+            lines.append(f"  • [{c}]{t.get('title', 'Unknown')}[/{c}]{covered} — {t.get('insight', '')}")
 
     hot_takes = synthesis.get("hot_takes", [])
     if hot_takes:
