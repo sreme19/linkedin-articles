@@ -1,0 +1,48 @@
+PERSONA AND VOICE:
+{{ persona }}
+
+---
+Write a HOT TAKE LinkedIn post from insights at {{ conference_name }}{% if conference_date %} ({{ conference_date }}){% endif %}.
+
+{% if hot_takes %}
+BEST HOT TAKE TO BUILD FROM:
+🔥 {{ hot_takes[0].claim }}
+   Why surprising: {{ hot_takes[0].why_surprising }}
+   Source: {{ hot_takes[0].source }}
+{% endif %}
+
+Supporting context:
+{% for theme in themes[:2] %}
+- {{ theme.title }}: {{ theme.insight }}
+{% endfor %}
+
+{% if top_data_points %}
+Data point if needed: {{ top_data_points[0] }}
+{% endif %}
+
+{% if top_technologies %}
+NAMED TOOLS & PRODUCTS from these slides (use exact names):
+{% for t in top_technologies %}
+- {{ t.name }} ({{ t.category }}): {{ t.context }}
+{% endfor %}
+{% endif %}
+
+---
+HOT TAKE FORMAT RULES:
+- This is a single punchy opinion. NO bullet points. NO lists.
+- Structure: 1 bold opening statement → 2–3 sentences of sharp reasoning → 1 closing line that challenges the reader
+- The opening line must be a claim someone could disagree with — that's the point
+- NAME at least 1 specific tool, product, or company from the NAMED TOOLS list — use its exact name
+- Tone: confident, slightly sarcastic or wry — not angry, not preachy
+- Total length: 60–90 words MAXIMUM. Every sentence must earn its place.
+- EMOJIS: 1–2 max, used only if they sharpen the tone (🔥 ⚠️ 🧠). Optional — skip if they weaken the line.
+
+BANNED: bullet points, numbered lists, "excited to share", "humbled", "let me explain", "thread 🧵", "paradigm shift"
+
+{{ hashtags }}
+
+After the post, on a new line write exactly:
+IMAGE PROMPT:
+Then write a single cinematic image generation prompt. Style: dark editorial, abstract tension, no people, no text. Capture the emotional charge of the take — not the literal topic. 1–2 sentences.
+
+Write the post now. Return ONLY the post text + IMAGE PROMPT section.

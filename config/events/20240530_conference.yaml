@@ -1,0 +1,10 @@
+conference_name: "Conference May 2024"
+conference_date: "2024-05-30"
+location: "Unknown"
+speaker: "Various Speakers"
+speakers: []
+notes: |
+  2-day event (May 30–31 2024). 96 images captured.
+  Conference identity not yet confirmed — run extraction to identify from slide branding.
+_date_cluster: ["20240530", "20240531"]
+_status: "unextracted"

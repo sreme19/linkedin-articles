@@ -1,0 +1,11 @@
+conference_name: "PIM Conference 2025"
+conference_date: "2025-09-17"
+location: "India"
+speaker: "Various Speakers"
+speakers: []
+notes: |
+  3-day event (Sept 17–19 2025). ~66 images captured.
+  Conference name inferred from topics_log: "PIM Conference 2025 (likely Products in Mind or similar India-based data/AI conference)".
+  Sept 17 (41 images) not yet extracted. Sept 18–19 (22 images) extracted but labelled Unknown Conference.
+_date_cluster: ["20250917", "20250918", "20250919"]
+_status: "partially_extracted"

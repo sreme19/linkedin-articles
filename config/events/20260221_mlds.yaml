@@ -1,0 +1,11 @@
+conference_name: "MLDS 2026"
+conference_date: "2026-02-21"
+location: "India"
+speaker: "Various Speakers"
+speakers: []
+notes: |
+  Event Feb 21 2026. 18 images total, 12 extracted, 6 remaining.
+  Conference name from topics_log: "MLDS 2026 (Machine Learning Developers Summit 2026)".
+  Also referenced as "NITKonnect 26 — Bharat Unbound: Self-Reliance through Innovation" in one topic — may be a parallel track or co-located event.
+_date_cluster: ["20260221"]
+_status: "partially_extracted"

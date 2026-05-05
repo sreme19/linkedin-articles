@@ -1,0 +1,49 @@
+PERSONA AND VOICE:
+{{ persona }}
+
+---
+Write a REACTION post about something specific that happened or was announced at {{ conference_name }}{% if conference_date %} ({{ conference_date }}){% endif %}.
+
+{% if hot_takes %}
+MOST NEWSWORTHY MOMENT:
+{{ hot_takes[0].claim }}
+Source: {{ hot_takes[0].source }}
+{% endif %}
+
+Key context:
+{% for theme in themes[:3] %}
+- {{ theme.title }}: {{ theme.insight }}
+{% endfor %}
+
+{% if top_data_points %}
+Hard number to anchor on: {{ top_data_points[0] }}
+{% endif %}
+
+{% if top_technologies %}
+NAMED TOOLS & PRODUCTS from these slides (use exact names):
+{% for t in top_technologies %}
+- {{ t.name }} ({{ t.category }}): {{ t.context }}
+{% endfor %}
+{% endif %}
+
+---
+REACTION FORMAT RULES:
+- Frame as breaking news or a fresh observation — "X just happened. Here's what it actually means."
+- Open with the specific thing that happened — name it, don't tease it
+- NAME at least 2 specific tools, products, or companies from the NAMED TOOLS list — use exact names
+- 2–3 sentences of sharp interpretation: what this signals, what most people are missing
+- One contrarian angle or implication that isn't obvious
+- Close with a single sharp question or provocation
+- Total length: 80–110 words. No padding.
+- EMOJIS: 2–3 max, used as anchors or to flag the key insight (⚡ 🔥 ⚠️ 🧠). Never decorative.
+- Tone: informed, slightly urgent, like you just came out of the session
+
+BANNED: "excited to share", "this changes everything", "game-changer", "humbled", "paradigm shift"
+
+{{ hashtags }}
+
+After the post, on a new line write exactly:
+IMAGE PROMPT:
+Then write a cinematic image generation prompt — journalistic/editorial style, a moment frozen in time, dark palette, no faces, no text. 1–2 sentences.
+
+Write the post now. Return ONLY the post text + IMAGE PROMPT section.

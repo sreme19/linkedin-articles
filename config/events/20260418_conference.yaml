@@ -1,0 +1,11 @@
+conference_name: "Event April 2026"
+conference_date: "2026-04-18"
+location: "Unknown"
+speaker: "Various Speakers"
+speakers: []
+notes: |
+  Single day event Apr 18 2026. 34 images total, 12 extracted, 22 remaining.
+  Conference identity not yet confirmed — topics_log labels this "Event 20260418".
+  Run extraction on remaining 22 images to identify conference from branding.
+_date_cluster: ["20260418"]
+_status: "partially_extracted"

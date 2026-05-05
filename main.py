@@ -29,17 +29,17 @@ def cli():
 
 @cli.command()
 @click.option(
-    "--input", "-i", "input_path", required=True,
+    "--input", "-i", "input_path", default=None,
     help="Path to a single file or a directory of artefacts (PDF, PNG, JPG, WEBP).",
 )
 @click.option(
-    "--manifest", "-m", default="manifest.yaml",
-    help="Path to manifest.yaml (default: manifest.yaml in current dir).",
+    "--manifest", "-m", default=None,
+    help="Path to manifest.yaml. Auto-selected when using --rotate.",
 )
 @click.option(
     "--format", "-f", "fmt",
     type=click.Choice(
-        ["article", "carousel", "infographic", "short_post", "all", "auto"],
+        ["article", "carousel", "infographic", "short_post", "hot_take", "reaction_post", "story_post", "all", "auto"],
         case_sensitive=False,
     ),
     default="auto",
@@ -57,7 +57,11 @@ def cli():
     "--sample", "-n", default=0, type=int,
     help="Randomly sample N files from the input (0 = use all).",
 )
-def run(input_path, manifest, fmt, output_dir, no_review, sample):
+@click.option(
+    "--rotate", is_flag=True, default=False,
+    help="Auto-select a conference different from the last posted one.",
+)
+def run(input_path, manifest, fmt, output_dir, no_review, sample, rotate):
     """Process conference artefacts and generate LinkedIn content."""
 
     if not os.getenv("ANTHROPIC_API_KEY"):
@@ -78,11 +82,22 @@ def run(input_path, manifest, fmt, output_dir, no_review, sample):
     from pipeline.generate import generate_content
     from pipeline.export import export_run
 
+    # ── Rotate: auto-pick a different conference than last posted ─────────────
+    if rotate:
+        input_path, manifest = _resolve_rotate(input_path, manifest)
+        if not input_path:
+            sys.exit(1)
+
+    if not input_path:
+        console.print("[red]Error: --input is required unless using --rotate.[/red]")
+        sys.exit(1)
+
     # ── 1. Ingest ─────────────────────────────────────────────────────────────
     console.print(Panel("[bold blue]Step 1 / 6 — Ingesting artefacts[/bold blue]"))
 
-    manifest_data = load_manifest(manifest)
+    manifest_data = load_manifest(manifest or "manifest.yaml")
     conference = manifest_data.get("conference_name", "Unknown Conference")
+    # Will be updated after synthesis if manifest has no real conference name
 
     all_files = collect_files(input_path)
     if not all_files:
@@ -164,6 +179,13 @@ def run(input_path, manifest, fmt, output_dir, no_review, sample):
     )
     synthesis = synthesize(artifacts, manifest_data, topics_log)
 
+    # Upgrade conference name if manifest had a placeholder
+    detected = synthesis.get("detected_conference_name", "")
+    if detected and conference in ("Unknown Conference", ""):
+        conference = detected
+        manifest_data["conference_name"] = detected
+        console.print(f"  [dim]Conference identified: {detected}[/dim]")
+
     console.print(
         Panel(_format_synthesis(synthesis), title="[bold green]Synthesis Brief[/bold green]")
     )
@@ -184,7 +206,7 @@ def run(input_path, manifest, fmt, output_dir, no_review, sample):
     if fmt == "auto":
         formats = recommend_and_confirm(synthesis, image_count, no_review)
     elif fmt == "all":
-        formats = ["article", "carousel", "infographic", "short_post"]
+        formats = ["article", "carousel", "infographic", "short_post", "hot_take"]
     else:
         formats = [fmt]
 
@@ -207,7 +229,7 @@ def run(input_path, manifest, fmt, output_dir, no_review, sample):
     console.print(Panel("[bold blue]Step 6 / 6 — Exporting[/bold blue]"))
 
     if output_dir is None:
-        out_slug = conference.lower().replace(" ", "-")[:30]
+        out_slug = conference.lower().replace(" ", "-").replace("/", "-")[:30]
         output_dir = str(DATA_DIR / "output" / f"{date.today().isoformat()}_{out_slug}")
 
     export_run(generated, synthesis, manifest_data, Path(output_dir))
@@ -217,6 +239,103 @@ def run(input_path, manifest, fmt, output_dir, no_review, sample):
         f"\n[bold green]Done![/bold green]  "
         f"Output → [cyan]{output_dir}[/cyan]"
     )
+
+
+@cli.command()
+@click.option(
+    "--input", "-i", "input_path", default="data/raw/",
+    help="Directory containing all artefacts (default: data/raw/).",
+)
+@click.option(
+    "--sample", "-n", default=12, type=int,
+    help="Images to sample per event group (default: 12).",
+)
+def scan(input_path, sample):
+    """Scan all event groups, extract topics, and save to topics_log.json without generating content."""
+
+    if not os.getenv("ANTHROPIC_API_KEY"):
+        console.print("[red]Error: ANTHROPIC_API_KEY not set.[/red]")
+        sys.exit(1)
+
+    from pipeline.ingest import collect_files, group_by_event, sample_files, load_seen_hashes, filter_new_files, mark_processed
+    from pipeline.extract import extract_artifact
+    from pipeline.synthesize import synthesize
+
+    all_files = collect_files(input_path)
+    if not all_files:
+        console.print(f"[red]No supported files found at: {input_path}[/red]")
+        sys.exit(1)
+
+    groups = group_by_event(all_files)
+    console.print(f"Found [green]{len(groups)}[/green] event group(s) across [green]{len(all_files)}[/green] files\n")
+
+    topics_log = (
+        json.loads(TOPICS_LOG.read_text()) if TOPICS_LOG.exists() else {"topics": []}
+    )
+    existing_topics = {t["topic"] for t in topics_log.get("topics", [])}
+
+    processed_dir = DATA_DIR / "processed"
+    seen, hashes_file = load_seen_hashes(processed_dir)
+
+    added_total = 0
+
+    for event_date, files in groups.items():
+        console.print(Panel(f"[bold blue]Event: {event_date}  ({len(files)} files)[/bold blue]"))
+
+        sampled = sample_files(files, sample)
+        new_files = filter_new_files(sampled, seen)
+
+        if not new_files:
+            console.print("  [dim]All sampled files already processed — skipping.[/dim]\n")
+            continue
+
+        artifacts = []
+        for f, file_hash in new_files:
+            try:
+                artifact = extract_artifact(f, {})
+                if artifact:
+                    artifacts.append(artifact)
+                    mark_processed(file_hash, f, hashes_file, seen)
+            except Exception as e:
+                console.print(f"  [yellow]Skipped {f.name}: {e}[/yellow]")
+
+        if not artifacts:
+            console.print("  [yellow]No content extracted — skipping.[/yellow]\n")
+            continue
+
+        synthesis = synthesize(artifacts, {}, topics_log)
+
+        conference = (
+            synthesis.get("detected_conference_name")
+            or f"Event {event_date}"
+        )
+
+        console.print(f"  Conference: [cyan]{conference}[/cyan]")
+        console.print(f"  Summary: {synthesis.get('conference_summary', '')[:120]}...")
+
+        added = 0
+        for theme in synthesis.get("themes", []):
+            if theme["title"] not in existing_topics:
+                topics_log["topics"].append({
+                    "topic": theme["title"],
+                    "insight": theme["insight"],
+                    "date": date.today().isoformat(),
+                    "conference": conference,
+                    "output_dir": "",
+                })
+                existing_topics.add(theme["title"])
+                added += 1
+                console.print(f"  + [green]{theme['title']}[/green]")
+
+        if added == 0:
+            console.print("  [dim]No new topics (all already covered).[/dim]")
+        else:
+            added_total += added
+
+        TOPICS_LOG.write_text(json.dumps(topics_log, indent=2))
+        console.print()
+
+    console.print(f"[bold green]Done.[/bold green] Added [green]{added_total}[/green] new topic(s) to topics_log.json")
 
 
 @cli.command()
@@ -255,6 +374,77 @@ def topics():
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
+def _resolve_rotate(input_path, manifest):
+    """Pick an event directory different from the last posted conference."""
+    import re
+
+    posts_log_path = BASE_DIR / "data" / "posts_log.json"
+    last_conference = ""
+    if posts_log_path.exists():
+        log = json.loads(posts_log_path.read_text())
+        posted = [p for p in log.get("posts", []) if p.get("posted_date") or p.get("engagement", {}).get("likes")]
+        if not posted:
+            posted = log.get("posts", [])
+        if posted:
+            last_conference = posted[-1].get("conference", "").lower()
+
+    events_dir = CONFIG_DIR / "events"
+    raw_dir = DATA_DIR / "raw"
+
+    # Build event options: {date_cluster: (manifest_path, raw_date_dirs)}
+    options = {}
+    if events_dir.exists():
+        for mf in sorted(events_dir.glob("*.yaml")):
+            import yaml
+            data = yaml.safe_load(mf.read_text()) or {}
+            name = data.get("conference_name", "")
+            clusters = data.get("_date_cluster", [])
+            if name.lower() == last_conference:
+                continue
+            # Find images for this event
+            imgs = []
+            for cluster in clusters:
+                imgs.extend(sorted(raw_dir.glob(f"IMG{cluster}*.jpg")))
+                imgs.extend(sorted(raw_dir.glob(f"IMG{cluster}*.jpeg")))
+                imgs.extend(sorted(raw_dir.glob(f"IMG{cluster}*.png")))
+            if imgs:
+                options[name] = (str(mf), str(raw_dir), clusters)
+
+    if not options:
+        console.print("[yellow]--rotate: no alternative conference found, using default input.[/yellow]")
+        return input_path, manifest
+
+    # Pick the event with most unprocessed images (richest new content)
+    processed_dir = DATA_DIR / "processed"
+    seen_path = processed_dir / "seen_hashes.json"
+    seen_names: set = set()
+    if seen_path.exists():
+        seen_data = json.loads(seen_path.read_text())
+        seen_names = {Path(p).name for p in seen_data.values()}
+
+    best_name, best_manifest, best_dir, best_clusters = "", "", str(raw_dir), []
+    best_count = -1
+    for name, (mf_path, raw_path, clusters) in options.items():
+        unprocessed = sum(
+            1 for c in clusters
+            for f in Path(raw_path).glob(f"IMG{c}*")
+            if f.suffix.lower() in {".jpg", ".jpeg", ".png"} and f.name not in seen_names
+        )
+        if unprocessed > best_count:
+            best_count = unprocessed
+            best_name = name
+            best_manifest = mf_path
+            best_dir = raw_path
+            best_clusters = clusters
+
+    if not best_name:
+        console.print("[yellow]--rotate: all alternative conferences already processed. Picking least-recently used.[/yellow]")
+        best_name, (best_manifest, best_dir, best_clusters) = next(iter(options.items()))
+
+    console.print(f"[cyan]--rotate: selected [bold]{best_name}[/bold] ({best_count} unprocessed images)[/cyan]")
+    return best_dir, best_manifest
+
+
 def _format_synthesis(synthesis: dict) -> str:
     lines = []
     summary = synthesis.get("conference_summary", "")
@@ -286,13 +476,18 @@ def _format_synthesis(synthesis: dict) -> str:
 def _update_topics_log(
     log: dict, synthesis: dict, manifest: dict, output_dir: str
 ) -> None:
+    conference = (
+        manifest.get("conference_name")
+        or synthesis.get("detected_conference_name")
+        or ""
+    )
     for theme in synthesis.get("themes", []):
         log["topics"].append(
             {
                 "topic": theme["title"],
                 "insight": theme["insight"],
                 "date": date.today().isoformat(),
-                "conference": manifest.get("conference_name", ""),
+                "conference": conference,
                 "output_dir": output_dir,
             }
         )

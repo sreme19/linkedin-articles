@@ -1,0 +1,74 @@
+{
+  "posts": [
+    {
+      "post_id": "2026-05-04-001",
+      "generated_date": "2026-05-04",
+      "posted_date": null,
+      "conference": "AWS Summit Bengaluru 2026",
+      "format": "short_post",
+      "topic": "MCP as Universal AI Integration Standard",
+      "hook": "Nobody is talking enough about the protocol layer.",
+      "file": "data/output/2026-05-04_unknown-conference/short_post.md",
+      "engagement": {
+        "likes": null,
+        "comments": null,
+        "reshares": null,
+        "impressions": null
+      },
+      "notes": ""
+    },
+    {
+      "post_id": "2026-05-05-001",
+      "generated_date": "2026-05-05",
+      "posted_date": null,
+      "conference": "AWS Summit Bengaluru 2026",
+      "format": "short_post",
+      "topic": "Agent-to-Agent Testing Paradigm",
+      "hook": "To test an AI, you need an AI.",
+      "file": "data/output/2026-05-05_unknown-conference/short_post.md",
+      "engagement": {
+        "likes": 3,
+        "comments": null,
+        "reshares": null,
+        "impressions": null
+      },
+      "notes": "Informative but lacked engagement. Too long, too many bullets competing equally."
+    },
+    {
+      "post_id": "2026-05-05-002",
+      "generated_date": "2026-05-05",
+      "posted_date": null,
+      "conference": "AWS Summit Bengaluru 2026",
+      "format": "hot_take",
+      "topic": "AWS Ships Kiro on Anthropic API, Not Its Own Stack",
+      "hook": "AWS just admitted its own orchestration layer isn't good enough.",
+      "file": "data/output/2026-05-05_aws-summit-bengaluru-2026/hot_take.md",
+      "image_prompt_file": "data/output/2026-05-05_aws-summit-bengaluru-2026/hot_take_image_prompt.txt",
+      "engagement": {
+        "likes": null,
+        "comments": null,
+        "reshares": null,
+        "impressions": null
+      },
+      "notes": "Grounded from IMG20260423132039.jpg — L4 Automator demo slide. Direct quote on slide: 'hand-rolled orchestration loop using the Anthropic Messages API directly'."
+    },
+    {
+      "post_id": "2026-05-05-003",
+      "generated_date": "2026-05-05",
+      "posted_date": null,
+      "conference": "AWS Summit Bengaluru 2026",
+      "format": "short_post",
+      "topic": "AI Rewrites the Architect Role / Context Blindness",
+      "hook": "AWS built its flagship AI dev tool on a hand-rolled Anthropic Messages API loop — not its own Bedrock Agents.",
+      "file": "data/output/2026-05-05_aws-summit-bengaluru-2026/short_post.md",
+      "image_prompt_file": "data/output/2026-05-05_aws-summit-bengaluru-2026/short_post_image_prompt.txt",
+      "engagement": {
+        "likes": null,
+        "comments": null,
+        "reshares": null,
+        "impressions": null
+      },
+      "notes": "3 bullets max, 80-130 word target, emojis as anchors. Grounded from May 5 extracted slides."
+    }
+  ]
+}

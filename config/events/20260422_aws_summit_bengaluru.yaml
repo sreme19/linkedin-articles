@@ -1,0 +1,19 @@
+conference_name: "AWS Summit Bengaluru 2026"
+conference_date: "2026-04-22"
+location: "Bengaluru, India"
+conference_url: "https://aws.amazon.com/events/summits/india/"
+speaker: "Various Speakers"
+speakers:
+  - name: "Amuthan Hamaline"
+    role: "Senior Technical Account Manager"
+    company: "AWS India"
+  - name: "Sreedhar Gade"
+    role: "VP Engineering"
+    company: "Freshworks"
+notes: |
+  2-day event (Apr 22–23 2026). 200 images total, only 42 extracted — 158 still unprocessed (79% gap).
+  This is the primary source for current posts. Confirmed from extracted slides:
+  AWS Kiro, Freshworks 600+ dev migration, Spec-Driven Development, MCP, Bedrock, Agentic AI.
+  Highest volume event — extract remaining slides for deeper content pool.
+_date_cluster: ["20260422", "20260423"]
+_status: "partially_extracted"

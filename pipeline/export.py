@@ -1,9 +1,11 @@
 import json
+import uuid
 from datetime import date
 from pathlib import Path
 from typing import Dict, List, Optional
 
 from rich.console import Console
+from rich.panel import Panel
 
 console = Console()
 
@@ -16,6 +18,7 @@ def export_run(
 ) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     image_prompts: List[str] = []
+    printed_posts: List[Dict] = []
 
     for fmt_name, content_data in generated.items():
         if fmt_name == "article":
@@ -27,8 +30,9 @@ def export_run(
             prompt = _export_infographic(content_data, output_dir)
             if prompt:
                 image_prompts.append(prompt)
-        elif fmt_name == "short_post":
-            _export_short_post(content_data, output_dir)
+        elif fmt_name in ("short_post", "hot_take", "reaction_post", "story_post"):
+            img_prompt = _export_short_format(content_data, fmt_name, output_dir)
+            printed_posts.append({"format": fmt_name, "content": content_data["content"], "image_prompt": img_prompt})
 
     if image_prompts:
         header = "# Image Generation Prompts\n\nUse these with ChatGPT, DALL-E, or Midjourney.\n\n"
@@ -46,6 +50,23 @@ def export_run(
     }
     (output_dir / "run_summary.json").write_text(json.dumps(summary, indent=2))
     console.print(f"  [green]All output → {output_dir}[/green]")
+
+    # Print each post + image prompt directly to terminal
+    for p in printed_posts:
+        console.print(f"\n{'─' * 60}")
+        console.print(Panel(
+            p["content"],
+            title=f"[bold cyan]📋 {p['format'].upper().replace('_', ' ')} — READY TO POST[/bold cyan]",
+            border_style="cyan",
+        ))
+        if p.get("image_prompt"):
+            console.print(Panel(
+                p["image_prompt"],
+                title="[bold magenta]🎨 IMAGE GENERATION PROMPT[/bold magenta]",
+                border_style="magenta",
+            ))
+
+    _update_posts_log(printed_posts, synthesis, manifest, output_dir)
 
 
 def _export_article(data: Dict, output_dir: Path) -> None:
@@ -104,10 +125,58 @@ def _export_infographic(data: Dict, output_dir: Path) -> Optional[str]:
     return f"## Infographic\n\n{content[:500]}"
 
 
-def _export_short_post(data: Dict, output_dir: Path) -> None:
-    path = output_dir / "short_post.md"
-    path.write_text(data["content"])
-    console.print(f"  Short post → [dim]{path}[/dim]")
+def _export_short_format(data: Dict, fmt_name: str, output_dir: Path) -> Optional[str]:
+    path = output_dir / f"{fmt_name}.md"
+    content = data["content"]
+    image_prompt = data.get("image_prompt", "")
+
+    # Split image prompt out of content if embedded (marked by IMAGE PROMPT: sentinel)
+    if "IMAGE PROMPT:" in content:
+        parts = content.split("IMAGE PROMPT:", 1)
+        content = parts[0].strip()
+        image_prompt = parts[1].strip()
+
+    path.write_text(content)
+    console.print(f"  {fmt_name} → [dim]{path}[/dim]")
+
+    if image_prompt:
+        prompt_path = output_dir / f"{fmt_name}_image_prompt.txt"
+        prompt_path.write_text(image_prompt)
+        console.print(f"  Image prompt → [dim]{prompt_path}[/dim]")
+
+    return image_prompt or None
+
+
+def _update_posts_log(posts: List[Dict], synthesis: Dict, manifest: Dict, output_dir: Path) -> None:
+    base_dir = Path(__file__).parent.parent
+    log_path = base_dir / "data" / "posts_log.json"
+    log: Dict = {"posts": []}
+    if log_path.exists():
+        try:
+            log = json.loads(log_path.read_text())
+        except json.JSONDecodeError:
+            pass
+
+    today = date.today().isoformat()
+    themes = synthesis.get("themes", [])
+    conference = manifest.get("conference_name", synthesis.get("detected_conference_name", ""))
+
+    for p in posts:
+        hook = p["content"].split("\n")[0].strip() if p["content"] else ""
+        log["posts"].append({
+            "post_id": f"{today}-{uuid.uuid4().hex[:6]}",
+            "generated_date": today,
+            "posted_date": None,
+            "conference": conference,
+            "format": p["format"],
+            "topic": themes[0]["title"] if themes else "",
+            "hook": hook,
+            "file": str(output_dir / f"{p['format']}.md"),
+            "engagement": {"likes": None, "comments": None, "reshares": None, "impressions": None},
+            "notes": "",
+        })
+
+    log_path.write_text(json.dumps(log, indent=2))
 
 
 # ── PPTX Carousel ────────────────────────────────────────────────────────────

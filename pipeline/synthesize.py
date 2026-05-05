@@ -1,4 +1,6 @@
 import json
+from datetime import date
+from pathlib import Path
 from typing import Dict, List
 
 import anthropic
@@ -26,10 +28,12 @@ Analyse ALL the artefacts above and return ONLY valid JSON — no other text, no
 3. Identify HOT TAKES: specific claims that are counterintuitive, challenge industry consensus, or would surprise a senior data practitioner. Be specific about WHY each is surprising.
 4. Pull the 3 best quotes and 3 best data points from all artefacts
 5. Write one compelling LinkedIn hook line (the sentence that stops the scroll)
-6. Recommend one primary content format: article, carousel, infographic, or short_post — with a 5-word reason
+6. Identify the top 5–8 specific tools, products, platforms, or companies named across all artefacts — use exact names as they appear in slides (e.g. "AWS Kiro", "Anthropic Messages API", "Bedrock Agents", "Dhan", "OpenSearch"). These will be used for explicit name-drops in the post.
+7. Recommend one primary content format: article, carousel, infographic, or short_post — with a 5-word reason
 
 JSON format:
 {{
+  "detected_conference_name": "Official conference name inferred from slides/branding (empty string if truly unknown)",
   "conference_summary": "2–3 sentence overview of dominant themes at the conference",
   "themes": [
     {{
@@ -51,13 +55,35 @@ JSON format:
   "best_hook": "One sentence that would make a data practitioner stop scrolling",
   "top_quotes": ["quote text — Speaker Name, Company"],
   "top_data_points": ["statistic/number with full context and source"],
+  "top_technologies": [
+    {{
+      "name": "Exact product/tool/company name as it appears in slides",
+      "category": "tool|platform|company|framework|service",
+      "context": "One sentence on what it does or why it matters in this conference context"
+    }}
+  ],
   "recommended_format": "article|carousel|infographic|short_post — reason in 5 words"
 }}\
 """
 
 
+def _persist_conference(name: str, date_str: str, base_dir: Path) -> None:
+    """Write detected conference name to data/conferences.json for future manifest lookup."""
+    if not name:
+        return
+    registry_path = base_dir / "data" / "conferences.json"
+    registry: Dict = {}
+    if registry_path.exists():
+        try:
+            registry = json.loads(registry_path.read_text())
+        except json.JSONDecodeError:
+            pass
+    registry[date_str] = {"name": name, "detected_at": date_str}
+    registry_path.write_text(json.dumps(registry, indent=2))
+
+
 def synthesize(artifacts: List[Dict], manifest: Dict, topics_log: Dict) -> Dict:
-    client = anthropic.Anthropic()
+    client = anthropic.Anthropic(timeout=90.0)
 
     covered = [t["topic"] for t in topics_log.get("topics", [])]
 
@@ -107,7 +133,6 @@ def synthesize(artifacts: List[Dict], manifest: Dict, topics_log: Dict) -> Dict:
         end = text.rfind("}") + 1
         if start >= 0 and end > start:
             result = json.loads(text[start:end])
-            # Attach previously-covered matches for use downstream
             result["_covered_topics"] = [
                 t
                 for t in topics_log.get("topics", [])
@@ -116,6 +141,10 @@ def synthesize(artifacts: List[Dict], manifest: Dict, topics_log: Dict) -> Dict:
                     for theme in result.get("themes", [])
                 )
             ]
+            detected = result.get("detected_conference_name", "")
+            if detected:
+                base_dir = Path(__file__).parent.parent
+                _persist_conference(detected, date.today().isoformat(), base_dir)
             return result
     except json.JSONDecodeError as e:
         console.print(f"[yellow]Warning: could not parse synthesis JSON: {e}[/yellow]")

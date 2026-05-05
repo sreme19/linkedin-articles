@@ -1,0 +1,48 @@
+PERSONA AND VOICE:
+{{ persona }}
+
+---
+Write a STORY post — first-person, something you observed or experienced at {{ conference_name }}{% if conference_date %} ({{ conference_date }}){% endif %}.
+
+Strongest insight to build the story around:
+{% if themes %}
+{{ themes[0].title }}: {{ themes[0].insight }}
+{% endif %}
+
+{% if hot_takes %}
+Moment that could anchor the story:
+{{ hot_takes[0].claim }} — {{ hot_takes[0].why_surprising }}
+{% endif %}
+
+{% if top_quotes %}
+Real quote from the event: {{ top_quotes[0] }}
+{% endif %}
+
+{% if top_technologies %}
+NAMED TOOLS & PRODUCTS from these slides (use exact names):
+{% for t in top_technologies %}
+- {{ t.name }} ({{ t.category }}): {{ t.context }}
+{% endfor %}
+{% endif %}
+
+---
+STORY FORMAT RULES:
+- Open with a specific moment, not a thesis — "I was sitting in the front row when..." or "The speaker said X and the room went quiet."
+- Short, scene-setting first paragraph (1–2 sentences)
+- The insight or observation that followed — what it made you think
+- NAME at least 1 specific tool, product, or company from the NAMED TOOLS list — use its exact name naturally in the story
+- One concrete implication for the reader's work
+- Close with a question or invitation — personal, not rhetorical
+- Total length: 100–130 words. Reads like a journal entry, not a report.
+- EMOJIS: 1–2 max, or none — story tone usually doesn't need them
+- Tone: honest, slightly vulnerable, like a text to a smart colleague — not a keynote
+
+BANNED: "excited to share", "humbled", "let that sink in", "paradigm shift", "in conclusion"
+
+{{ hashtags }}
+
+After the post, on a new line write exactly:
+IMAGE PROMPT:
+Then write a cinematic image generation prompt — intimate, observational, like a documentary still. A single person in a large space, or an empty stage, or a notebook and a coffee. Dark editorial tone. 1–2 sentences.
+
+Write the post now. Return ONLY the post text + IMAGE PROMPT section.

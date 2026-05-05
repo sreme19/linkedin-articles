@@ -1,3 +1,417 @@
 {
-  "topics": []
+  "topics": [
+    {
+      "topic": "MCP as Universal AI Integration Standard",
+      "insight": "Model Context Protocol is emerging as the default middleware layer connecting AI agents to every data source, tool, and external system \u2014 effectively replacing bespoke API integration logic and positioning itself as the 'USB-C port' for enterprise AI stacks.",
+      "date": "2026-05-04",
+      "conference": "Unknown Conference",
+      "output_dir": "/Users/performek5/Desktop/Code/linkedin-articles/data/output/2026-05-04_unknown-conference"
+    },
+    {
+      "topic": "Agentic IDE Redefines Developer Role",
+      "insight": "AWS Kiro signals that the IDE is no longer a code editor but a full-lifecycle autonomous agent platform \u2014 capable of owning specification, architecture, multi-file editing, PR creation, and periodic codebase maintenance with minimal human intervention.",
+      "date": "2026-05-04",
+      "conference": "Unknown Conference",
+      "output_dir": "/Users/performek5/Desktop/Code/linkedin-articles/data/output/2026-05-04_unknown-conference"
+    },
+    {
+      "topic": "AI Adoption Antipatterns and Governance Debt",
+      "insight": "Conference speakers explicitly named three strategic failure modes of AI adoption \u2014 Context Deficiency, Unbounded System Risk, and Un-arrested Code Rot \u2014 reframing AI governance not as a compliance checkbox but as an active, continuous engineering discipline.",
+      "date": "2026-05-04",
+      "conference": "Unknown Conference",
+      "output_dir": "/Users/performek5/Desktop/Code/linkedin-articles/data/output/2026-05-04_unknown-conference"
+    },
+    {
+      "topic": "Natural Language Replaces Specialist Interfaces",
+      "insight": "Across data engineering, software testing, UI automation, and database operations, natural language is being positioned as a first-class replacement for SQL, test scripts, and RPA rules \u2014 democratising access while potentially displacing entire specialist skill categories.",
+      "date": "2026-05-04",
+      "conference": "Unknown Conference",
+      "output_dir": "/Users/performek5/Desktop/Code/linkedin-articles/data/output/2026-05-04_unknown-conference"
+    },
+    {
+      "topic": "Multi-Model Strategy Over Single-Model Dependency",
+      "insight": "Amazon Bedrock's 17-provider model marketplace combined with Intelligent Prompt Routing signals that the winning enterprise AI architecture is model-agnostic and cost-optimised by design \u2014 not tied to any single frontier model.",
+      "date": "2026-05-04",
+      "conference": "Unknown Conference",
+      "output_dir": "/Users/performek5/Desktop/Code/linkedin-articles/data/output/2026-05-04_unknown-conference"
+    },
+    {
+      "topic": "LLM Infrastructure Is Fragile at Scale",
+      "insight": "Running LLMs in production requires deliberate engineering around resiliency, routing, and failure modes \u2014 capabilities that are rarely discussed in AI marketing but dominate practitioner conversations.",
+      "date": "2026-05-05",
+      "conference": "Unknown Conference",
+      "output_dir": "/Users/performek5/Desktop/Code/linkedin-articles/data/output/2026-05-05_unknown-conference"
+    },
+    {
+      "topic": "Production Gap Remains the Core AI Problem",
+      "insight": "The leap from AI experimentation to reliable production deployment is still the defining challenge for engineering teams, with orchestration stacks emerging as the critical missing layer.",
+      "date": "2026-05-05",
+      "conference": "Unknown Conference",
+      "output_dir": "/Users/performek5/Desktop/Code/linkedin-articles/data/output/2026-05-05_unknown-conference"
+    },
+    {
+      "topic": "Orchestration Stack as Agentic Foundation",
+      "insight": "Reliable agentic systems are not just a model problem \u2014 they require a dedicated orchestration layer that handles coordination, failure recovery, and workflow management at the infrastructure level.",
+      "date": "2026-05-05",
+      "conference": "Unknown Conference",
+      "output_dir": "/Users/performek5/Desktop/Code/linkedin-articles/data/output/2026-05-05_unknown-conference"
+    },
+    {
+      "topic": "Practitioners Redefining AI Reliability Standards",
+      "insight": "The conference agenda reflects a shift where AI reliability is no longer assumed \u2014 it must be engineered explicitly, with practitioners from cloud infrastructure and financial services leading the conversation.",
+      "date": "2026-05-05",
+      "conference": "Unknown Conference",
+      "output_dir": "/Users/performek5/Desktop/Code/linkedin-articles/data/output/2026-05-05_unknown-conference"
+    },
+    {
+      "topic": "Spec-First AI Development Workflow",
+      "insight": "AWS Kiro enforces a docs-before-code discipline \u2014 requirements.md \u2192 design.md \u2192 tasks.md \u2014 inverting the conventional write-first, document-later developer habit and positioning AI as the architect while humans serve as reviewers.",
+      "date": "2026-05-05",
+      "conference": "Unknown Conference",
+      "output_dir": "/Users/performek5/Desktop/Code/linkedin-articles/data/output/2026-05-05_unknown-conference"
+    },
+    {
+      "topic": "Team Topology Reinvention for AI Era",
+      "insight": "The fundamental constraint of engineering teams is shifting from 'how much code can we write' to 'how much AI output can we effectively oversee,' meaning teams should be sized by oversight capacity \u2014 not implementation capacity \u2014 and AI multiplies value streams rather than reducing headcount.",
+      "date": "2026-05-05",
+      "conference": "Unknown Conference",
+      "output_dir": "/Users/performek5/Desktop/Code/linkedin-articles/data/output/2026-05-05_unknown-conference"
+    },
+    {
+      "topic": "Context Engineering as Core Discipline",
+      "insight": "AI coding agents suffer from a structural 'tunnel view' problem \u2014 they cannot see full codebases, produce precision and recall failures, and are defeated by the linguistic impedance mismatch between business vocabulary and code, making context engineering a non-optional foundational practice for enterprise AI development.",
+      "date": "2026-05-05",
+      "conference": "Unknown Conference",
+      "output_dir": "/Users/performek5/Desktop/Code/linkedin-articles/data/output/2026-05-05_unknown-conference"
+    },
+    {
+      "topic": "Agent-to-Agent Testing Paradigm",
+      "insight": "Testing AI systems now requires AI adversaries \u2014 autonomous evaluators probing not for code vulnerabilities but for logical vulnerabilities like hallucination, bias, and compliance failures \u2014 marking a fundamental break from deterministic QA methodology.",
+      "date": "2026-05-05",
+      "conference": "Unknown Conference",
+      "output_dir": "/Users/performek5/Desktop/Code/linkedin-articles/data/output/2026-05-05_unknown-conference"
+    },
+    {
+      "topic": "AI-Induced Technical Debt is Structural",
+      "insight": "AI coding tools generate 'plausible-looking but poor-quality outputs' and actively accelerate code rot if not continuously policed \u2014 meaning AI adoption creates a new category of ongoing maintenance liability that organisations are systematically underestimating.",
+      "date": "2026-05-05",
+      "conference": "Unknown Conference",
+      "output_dir": "/Users/performek5/Desktop/Code/linkedin-articles/data/output/2026-05-05_unknown-conference"
+    },
+    {
+      "topic": "Agentic AI Consumes the Entire SDLC",
+      "insight": "Agentic AI is no longer positioned as a coding assistant \u2014 it is being framed as an autonomous participant across planning, design, testing, documentation, and technical debt retirement, fundamentally redefining what software engineering means.",
+      "date": "2026-05-05",
+      "conference": "AWS Summit India 2026 (with secondary content from CYPHER25)",
+      "output_dir": ""
+    },
+    {
+      "topic": "AI Self-Improvement Reduces Human Oversight",
+      "insight": "Multiple sessions converge on a provocative idea: AI systems can increasingly train, evaluate, and improve themselves \u2014 through reinforcement learning from AI feedback, self-improving knowledge flywheels, and LLM-driven pattern detection without manual feature engineering \u2014 challenging the assumption that humans must remain in the loop.",
+      "date": "2026-05-05",
+      "conference": "AWS Summit India 2026 (with secondary content from CYPHER25)",
+      "output_dir": ""
+    },
+    {
+      "topic": "Quantum as AI's Prescriptive Layer",
+      "insight": "Quantum computing is reframed not as a disruptor of AI but as its natural complement \u2014 where AI handles predictive analytics (what may happen) and quantum optimization handles prescriptive analytics (exactly how to achieve the best outcome), forming a workflow pipeline that neither technology can complete alone.",
+      "date": "2026-05-05",
+      "conference": "AWS Summit India 2026 (with secondary content from CYPHER25)",
+      "output_dir": ""
+    },
+    {
+      "topic": "Agentic Search Enters Production Infrastructure",
+      "insight": "Agentic search \u2014 where AI agents autonomously query, reason over, and retrieve information \u2014 is moving from concept to deployed infrastructure, with OpenSearch (not purpose-built vector databases) emerging as the platform of choice, challenging assumptions about which data systems underpin AI-native applications.",
+      "date": "2026-05-05",
+      "conference": "AWS Summit India 2026 (with secondary content from CYPHER25)",
+      "output_dir": ""
+    },
+    {
+      "topic": "GenAI's Biggest CX Gains Are Internal, Not Customer-Facing",
+      "insight": "The most impactful GenAI customer experience improvements are coming not from conversational chatbots but from behind-the-scenes defect detection and proactive quality assurance systems \u2014 suggesting the industry has been looking for AI CX value in the wrong place.",
+      "date": "2026-05-05",
+      "conference": "AWS Summit India 2026 (with secondary content from CYPHER25)",
+      "output_dir": ""
+    },
+    {
+      "topic": "Organisation Over Tooling for AI ROI",
+      "insight": "DORA 2025 research across nearly 3,000 professionals finds that competitive AI returns come not from the tools selected but from the quality of internal platforms, workflow clarity, and team alignment \u2014 and that AI amplifies dysfunction as readily as it amplifies performance.",
+      "date": "2026-05-05",
+      "conference": "AWS Summit Bengaluru 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Human-in-Loop as Design Philosophy",
+      "insight": "The AI-DLC framework positions mandatory human checkpoints \u2014 clarification, plan approval, and outcome verification \u2014 as a deliberate architectural choice for enterprise AI, directly challenging the industry narrative that removing humans from the loop is the end goal.",
+      "date": "2026-05-05",
+      "conference": "AWS Summit Bengaluru 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Quality Verification as Competitive Moat",
+      "insight": "In an era of abundant AI-generated code, the differentiating capability shifts from generation speed to verification speed \u2014 making agentic testing and measurable trust the primary strategic asset, not output volume.",
+      "date": "2026-05-05",
+      "conference": "AWS Summit Bengaluru 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Agentic IDE Redefines Developer Workflow",
+      "insight": "AWS Kiro introduces a new developer tooling paradigm where persistent markdown steering files, event-driven hooks, and reusable skills replace static linters and CI pipelines as the primary standards-enforcement layer \u2014 shifting the developer from author to supervisor.",
+      "date": "2026-05-05",
+      "conference": "AWS Summit Bengaluru 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Context Window Constraint is Structural, Not Solvable",
+      "insight": "Regardless of context window size increases, AI coding assistants are fundamentally making probabilistic guesses from a 'tunnel view' of the codebase \u2014 reframing LLMs not as systems that understand code but as systems that infer it, making context engineering the only practical mitigation.",
+      "date": "2026-05-05",
+      "conference": "AWS Summit Bengaluru 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Agentic Infrastructure as Enterprise Primitive",
+      "insight": "AWS is treating agentic AI components \u2014 runtime, memory, identity, observability, managed browser \u2014 as foundational cloud infrastructure, not application-layer features. This signals that the industry considers autonomous agents a production-grade infrastructure concern rather than a research prototype.",
+      "date": "2026-05-05",
+      "conference": "AWS Summit / AWS AI Conference 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Cost-Tiered AI Inference Strategy",
+      "insight": "Not all AI workloads deserve the same infrastructure tier \u2014 deliberately accepting slower, cheaper inference for latency-tolerant workloads is a legitimate and overlooked engineering decision. AWS is operationalising this through five service tiers and feature-level optimisations including model distillation and intelligent prompt routing.",
+      "date": "2026-05-05",
+      "conference": "AWS Summit / AWS AI Conference 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "MCP as Agentic Integration Standard",
+      "insight": "Model Context Protocol is emerging as the connective tissue between AI agents and backend systems \u2014 enabling dynamic tool discovery at runtime rather than hardcoded integrations. Its elevation to a paradigm-shift milestone (alongside the move to autonomous agents) suggests interoperability protocols may matter as much as model capabilities.",
+      "date": "2026-05-05",
+      "conference": "AWS Summit / AWS AI Conference 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Prompt Engineering as Security Control",
+      "insight": "Production deployments are revealing that prompt engineering is not just a UX or quality tool \u2014 it is a security boundary. Blanket guardrail toggles are insufficient; optimised system prompts and test-case-driven guardrail design are required to prevent both safety failures and business funnel damage.",
+      "date": "2026-05-05",
+      "conference": "AWS Summit / AWS AI Conference 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Domain-Specific Model Architecture Over Foundation Model Dependence",
+      "insight": "The most sophisticated production AI architectures are using foundation models to train smaller domain-specific models, then routing to those first \u2014 deliberately reducing dependency on large external models for cost, latency, and data sovereignty reasons. This DSLM-first routing strategy inverts the 'always use the biggest model' assumption.",
+      "date": "2026-05-05",
+      "conference": "AWS Summit / AWS AI Conference 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Architecture Beats Model Quality",
+      "insight": "Competitive advantage in AI over the next five years will be determined by system architecture, not model capability \u2014 implying model commoditisation is already underway and the real engineering challenge is structural design.",
+      "date": "2026-05-05",
+      "conference": "Event 20260418",
+      "output_dir": ""
+    },
+    {
+      "topic": "Stateful Runtime Is Non-Negotiable Infrastructure",
+      "insight": "LLMs are inherently stateless and amnesiac between calls; a separate persistent runtime layer handling memory, orchestration, and context rehydration is architecturally mandatory \u2014 not optional \u2014 for any agentic system beyond demo-scale.",
+      "date": "2026-05-05",
+      "conference": "Event 20260418",
+      "output_dir": ""
+    },
+    {
+      "topic": "Traditional CI Is Structurally Broken for Agents",
+      "insight": "CI pipelines were engineered around human commit behaviour \u2014 small, frequent, reviewable diffs \u2014 and are architecturally incompatible with AI agent output, which arrives as massive asynchronous batches that overwhelm both tooling and human reviewers.",
+      "date": "2026-05-05",
+      "conference": "Event 20260418",
+      "output_dir": ""
+    },
+    {
+      "topic": "Context Engineering Determines Hallucination Rates",
+      "insight": "Treating the LLM context window as passive token storage rather than actively managed working memory is an engineering failure \u2014 not a model limitation \u2014 and structured context management demonstrably reduces hallucinations by 40\u201360%.",
+      "date": "2026-05-05",
+      "conference": "Event 20260418",
+      "output_dir": ""
+    },
+    {
+      "topic": "Enterprise AI Governance Requires Extensibility, Not Just Restriction",
+      "insight": "Effective enterprise AI governance is not solely about locking things down \u2014 it equally requires governed extensibility, allowing organisations to integrate chosen agents, MCPs, and tools without sacrificing control or safety.",
+      "date": "2026-05-05",
+      "conference": "Event 20260418",
+      "output_dir": ""
+    },
+    {
+      "topic": "Agent Trust Is the Blocking Variable",
+      "insight": "Across evaluation frameworks and real-world case studies, trust and auditability emerge as hard blockers that override otherwise high composite scores \u2014 a single dimension failure is sufficient to halt an entire agentic workflow, regardless of overall performance.",
+      "date": "2026-05-05",
+      "conference": "MLDS 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Agentic Security Is Critically Unsolved",
+      "insight": "The MCP and A2A protocol layers that underpin modern agentic AI stacks have systemic, largely unmitigated security vulnerabilities \u2014 and the vast majority of organisations are deploying agents without full security approval, creating a compliance time-bomb.",
+      "date": "2026-05-05",
+      "conference": "MLDS 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Observability Means Behaviour, Not Correctness",
+      "insight": "AI observability should be modelled on systems engineering \u2014 monitoring behavioural signals like traces, latency, token usage, retrieval steps, and tool calls \u2014 rather than on academic model evaluation focused on answer correctness.",
+      "date": "2026-05-05",
+      "conference": "MLDS 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Physical AI Demands Deterministic Engineering Discipline",
+      "insight": "Deploying AI in physical systems is not primarily a model complexity problem \u2014 it is a systems engineering problem where probabilistic outputs must be translated into deterministic, real-time, irreversible-consequence-aware decisions that standard ML practices are not designed to handle.",
+      "date": "2026-05-05",
+      "conference": "MLDS 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Causal Models as Dynamic Agent Guardrails",
+      "insight": "Structural Causal Models (SCMs) offer a fundamentally different approach to AI safety \u2014 providing not just blocks but rationale and safe alternatives, and learning from agent outcomes over time \u2014 in contrast to static rule-based or classifier-based guardrail approaches.",
+      "date": "2026-05-05",
+      "conference": "MLDS 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Experts as Workflow Architects",
+      "insight": "The dominant agentic AI narrative of autonomous self-directed AI is being actively challenged: the most robust production systems embed human Subject Matter Experts as designers of decision logic, not as post-hoc advisors or safety nets. AI executes; humans architect.",
+      "date": "2026-05-05",
+      "conference": "MLDS 2026 (Machine Learning Developers Summit 2026)",
+      "output_dir": ""
+    },
+    {
+      "topic": "Agentic Infrastructure Scaling Is Multiplicative",
+      "insight": "Multi-agent systems do not scale linearly \u2014 the combination of tenants, agents, and solution paths creates an X\u00d7Y\u00d7Z combinatorial explosion that traditional infrastructure cannot absorb, making serverless branching and purpose-built AgentOps disciplines structural necessities, not optimisations.",
+      "date": "2026-05-05",
+      "conference": "MLDS 2026 (Machine Learning Developers Summit 2026)",
+      "output_dir": ""
+    },
+    {
+      "topic": "Proprietary ML Infra Goes Open Source",
+      "insight": "Meesho's decision to open-source BharatMLStack \u2014 after 30 engineer-years of investment \u2014 signals a strategic shift where ML infrastructure is no longer treated as a competitive moat, but as a commons-building play that accelerates ecosystem adoption and talent alignment.",
+      "date": "2026-05-05",
+      "conference": "MLDS 2026 (Machine Learning Developers Summit 2026)",
+      "output_dir": ""
+    },
+    {
+      "topic": "Multilingual Agentic CX at Scale",
+      "insight": "Meesho's deployment of agentic AI across 9 Indian languages for inbound seller support \u2014 not consumer support \u2014 represents an underreported frontier: B2B-style support automation at linguistic scale in emerging markets, where most AI CX deployments still struggle with two languages.",
+      "date": "2026-05-05",
+      "conference": "MLDS 2026 (Machine Learning Developers Summit 2026)",
+      "output_dir": ""
+    },
+    {
+      "topic": "Data Governance and Lineage as Co-Equal Pillars",
+      "insight": "Modern data architectures are decoupling governance and lineage as independent, co-equal infrastructure concerns \u2014 rather than treating lineage as a subset of governance \u2014 reflecting the reality that each requires distinct tooling, investment, and ownership at scale.",
+      "date": "2026-05-05",
+      "conference": "MLDS 2026 (Machine Learning Developers Summit 2026)",
+      "output_dir": ""
+    },
+    {
+      "topic": "Explainability as Safety Infrastructure",
+      "insight": "In high-stakes AI environments, explainability must be architected as a foundational safety control \u2014 not layered on as a UX feature \u2014 with counterfactual reasoning and full auditability embedded as core system capabilities rather than afterthoughts.",
+      "date": "2026-05-05",
+      "conference": "Happy Llama 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Voice and Demo-to-Deployment Chasm",
+      "insight": "The critical failure point for production AI \u2014 particularly voice AI \u2014 is not model capability but the structural gap between demo conditions and real deployment environments, a problem that requires product discipline rather than more model sophistication.",
+      "date": "2026-05-05",
+      "conference": "Happy Llama 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Sovereign Protocol Layer for AI Agents",
+      "insight": "India's UPI payment infrastructure is being proposed as the architectural template for governing trusted AI agent interactions \u2014 suggesting that sovereign financial protocol design, not Silicon Valley AI standards, could define how autonomous agents interoperate at scale.",
+      "date": "2026-05-05",
+      "conference": "Happy Llama 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "AI-Proof Leadership Reframes Adoption Narrative",
+      "insight": "Rather than demanding leaders become 'AI-first', the emerging practitioner view is that durable leadership requires resilience to AI disruption \u2014 a fundamentally different posture that challenges the dominant all-in AI adoption mandate.",
+      "date": "2026-05-05",
+      "conference": "Happy Llama 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "Borderless Business Infrastructure for AI Startups",
+      "insight": "AI-native startups are increasingly making jurisdiction selection a strategic product decision \u2014 choosing incorporation domiciles (UK, Singapore, UAE, Hong Kong) based on specific operational goals rather than founder geography, enabled by AI-powered admin platforms that remove the operational cost of operating across borders.",
+      "date": "2026-05-05",
+      "conference": "Happy Llama 2026",
+      "output_dir": ""
+    },
+    {
+      "topic": "AI Pilot-to-Production Gap Persists",
+      "insight": "Despite widespread AI adoption narratives, the central challenge discussed across sessions was moving AI deployments from controlled experiments to reliable, enterprise-grade production \u2014 with panelists from Accenture, McDonald's GCC, and Lyzr all anchoring their discussion on this gap.",
+      "date": "2026-05-05",
+      "conference": "NITKonnect 26 \u2014 Bharat Unbound: Self-Reliance through Innovation",
+      "output_dir": ""
+    },
+    {
+      "topic": "Bharat-First Models Outflank Metro Incumbents",
+      "insight": "Multiple sessions and startups at the conference were built on the thesis that tier 2/3 India \u2014 'Bharat' \u2014 represents the next structural growth wave, with lower competition, lower cost bases, and fast-rising digital adoption enabling leapfrog business models that bypass the assumptions of metro-centric incumbents.",
+      "date": "2026-05-05",
+      "conference": "NITKonnect 26 \u2014 Bharat Unbound: Self-Reliance through Innovation",
+      "output_dir": ""
+    },
+    {
+      "topic": "AI Redefines Work Without Replacing Workers",
+      "insight": "The conference consistently framed AI as augmenting human capability rather than displacing it, but the inclusion of identity security (Okta) and fast food operations (McDonald's GCC) on AI panels signals that the real frontier of AI-human collaboration is in operational and trust infrastructure, not just knowledge work.",
+      "date": "2026-05-05",
+      "conference": "NITKonnect 26 \u2014 Bharat Unbound: Self-Reliance through Innovation",
+      "output_dir": ""
+    },
+    {
+      "topic": "India's Alternative Investment Ecosystem Maturing Fast",
+      "insight": "India's AIF (Alternative Investment Fund) market is growing at 18.9% CAGR in registered fund count and accelerating LP capital commitments, but structural barriers \u2014 \u20b91 crore minimums, 3-year lock-ins \u2014 mean this growth is concentrated among HNIs, not democratizing private markets as the narrative suggests.",
+      "date": "2026-05-05",
+      "conference": "NITKonnect 26 \u2014 Bharat Unbound: Self-Reliance through Innovation",
+      "output_dir": ""
+    },
+    {
+      "topic": "AI Accelerates Deep-Tech Engineering Output",
+      "insight": "AI-assisted tooling in chip design (EDA) is delivering compounding gains across multiple dimensions simultaneously \u2014 cycle time, throughput, cost, and silicon quality \u2014 suggesting that AI's impact in engineering-intensive domains may be structurally larger than in knowledge work, where gains are harder to measure.",
+      "date": "2026-05-05",
+      "conference": "NITKonnect 26 \u2014 Bharat Unbound: Self-Reliance through Innovation",
+      "output_dir": ""
+    },
+    {
+      "topic": "Agentic AI Replaces Expert Analysts",
+      "insight": "Agentic systems like Milky Way are being positioned not as decision-support tools but as full replacements for expert analyst workflows, compressing analysis cycles from weeks to minutes through constellations of specialised autonomous agents that learn, reason, and evolve.",
+      "date": "2026-05-05",
+      "conference": "PIM Conference 2025 (likely 'Products in Mind' or similar India-based data/AI conference)",
+      "output_dir": ""
+    },
+    {
+      "topic": "AI Trust Frameworks Are Dangerously Fragmented",
+      "insight": "With 9+ competing AI trust frameworks from consulting giants, national financial regulators, and aerospace companies all coexisting, there is no consensus on how to build trustworthy AI \u2014 meaning enterprises must navigate a governance landscape that is itself untrustworthy.",
+      "date": "2026-05-05",
+      "conference": "PIM Conference 2025 (likely 'Products in Mind' or similar India-based data/AI conference)",
+      "output_dir": ""
+    },
+    {
+      "topic": "Explainability Breaks Down at Scale",
+      "insight": "Scaling GenAI models creates a paradox where the larger and more powerful the model, the harder it becomes to explain \u2014 meaning the industry's most capable AI systems are simultaneously its least trustworthy from a governance perspective.",
+      "date": "2026-05-05",
+      "conference": "PIM Conference 2025 (likely 'Products in Mind' or similar India-based data/AI conference)",
+      "output_dir": ""
+    },
+    {
+      "topic": "Quantum Optimises AI From Inside",
+      "insight": "Rather than replacing classical AI, quantum-inspired combinatorial methods (QUBO) are being applied inside LLM architectures to outperform standard approaches to model compression, neural architecture search, and expert routing \u2014 positioning quantum as an internal optimisation layer, not a future competitor.",
+      "date": "2026-05-05",
+      "conference": "PIM Conference 2025 (likely 'Products in Mind' or similar India-based data/AI conference)",
+      "output_dir": ""
+    },
+    {
+      "topic": "AI Hiring Tools Claim to Beat Human Fairness",
+      "insight": "SelectPrism's adaptive AI interviewing platform directly inverts the dominant narrative around algorithmic hiring bias, claiming that AI-guided live prompts produce fairer outcomes than human interviewers \u2014 and that resumes are so inadequate as signals that 60M+ profiles are needed to understand a role properly.",
+      "date": "2026-05-05",
+      "conference": "PIM Conference 2025 (likely 'Products in Mind' or similar India-based data/AI conference)",
+      "output_dir": ""
+    }
+  ]
 }

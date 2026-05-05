@@ -45,6 +45,7 @@ def generate_content(
         "hot_takes": synthesis.get("hot_takes", []),
         "top_quotes": synthesis.get("top_quotes", []),
         "top_data_points": synthesis.get("top_data_points", []),
+        "top_technologies": synthesis.get("top_technologies", []),
         "covered_topics": [t["topic"] for t in synthesis.get("_covered_topics", [])],
         "best_hook": synthesis.get("best_hook", ""),
         "hashtags": _pick_hashtags(hashtags),
@@ -53,11 +54,17 @@ def generate_content(
     template = _env.get_template(f"{format_name}_prompt.j2")
     prompt = template.render(**context)
 
+    SHORT_FORMATS = {"short_post", "hot_take", "reaction_post", "story_post"}
     system_msg = "You are a LinkedIn content writer. Follow all instructions precisely."
     if format_name == "carousel":
         system_msg = (
             "You are a LinkedIn content writer. "
             "Return ONLY valid JSON — no markdown fences, no preamble, no trailing text."
+        )
+    elif format_name in SHORT_FORMATS:
+        system_msg = (
+            "You are a LinkedIn content writer. Follow all instructions precisely. "
+            "Be ruthlessly concise — cut any sentence that doesn't earn its place."
         )
 
     response = client.messages.create(

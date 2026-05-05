@@ -26,18 +26,31 @@ Strongest data point: {{ top_data_points[0] }}
 Best quote: {{ top_quotes[0] }}
 {% endif %}
 
+{% if top_technologies %}
+NAMED TOOLS & PRODUCTS from these slides (use exact names):
+{% for t in top_technologies %}
+- {{ t.name }} ({{ t.category }}): {{ t.context }}
+{% endfor %}
+{% endif %}
+
 ---
 POST REQUIREMENTS:
-- Open with a bold, contrarian, or surprising statement — no warm-up, no context-setting
-- 3–5 concrete bullet takeaways from the conference
-- Each bullet: specific and actionable, not vague ("AI agents need better evals" not "AI is changing things")
-- Include one data point or quote if it strengthens a bullet
-- End with a specific question that a senior data practitioner would actually want to answer
-- Total length: 150–250 words
-- Format: plain text, strategic line breaks, minimal emojis
+- Open with a bold, contrarian, or surprising one-liner — no warm-up, no context-setting
+- Maximum 3 bullet takeaways — pick the 3 most surprising, not the most comprehensive
+- Each bullet: specific and concrete ("Freshworks moved 600 devs to Kiro in one sprint" not "teams are adopting AI tools")
+- NAME AT LEAST 2 specific tools, products, or companies from the NAMED TOOLS list above — use their exact names in the post
+- One data point or quote embedded where it punches hardest
+- End with a single sharp provocation or question — one sentence, not a paragraph
+- Total length: 80–130 words MAXIMUM. Shorter is better. Cut ruthlessly.
+- Format: plain text, strategic line breaks
+- EMOJIS: use exactly 2–3 emojis total — placed as visual anchors on bullet lines only (e.g. ⚡ ⚠️ 🧠 🔥). Never at the end of a sentence. Never on the hook line.
 
-BANNED PHRASES: "excited to share", "humbled", "thoughts?", "the future is here", "game-changer", "paradigm shift", "it's clear that"
+BANNED PHRASES: "excited to share", "humbled", "thoughts?", "the future is here", "game-changer", "paradigm shift", "it's clear that", "as we navigate", "in today's world"
 
 {{ hashtags }}
 
-Write the post now. Return ONLY the post text — no preamble, no labels, nothing extra.
+After the post, on a new line write exactly:
+IMAGE PROMPT:
+Then write a single cinematic image generation prompt for this post. Style: editorial photography, dark moody tech aesthetic, no text overlays, no stock photo vibes. Should capture the FEELING of the insight, not illustrate it literally. 1–2 sentences.
+
+Write the post now. Return ONLY the post text + IMAGE PROMPT section — no preamble, no labels, nothing extra.

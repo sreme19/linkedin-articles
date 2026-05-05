@@ -1,0 +1,11 @@
+conference_name: "Happy Llama 2026"
+conference_date: "2026-03-26"
+location: "India"
+speaker: "Various Speakers"
+speakers: []
+notes: |
+  2-day event (Mar 26–27 2026). 127 images total, only 24 extracted — 103 images still unprocessed (81% gap).
+  Conference name from topics_log: "Happy Llama 2026".
+  Highest-priority event for backfill extraction after AWS Summit.
+_date_cluster: ["20260326", "20260327"]
+_status: "partially_extracted"

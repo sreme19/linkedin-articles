@@ -1,0 +1,10 @@
+conference_name: "Conference August 2025"
+conference_date: "2025-08-20"
+location: "Unknown"
+speaker: "Various Speakers"
+speakers: []
+notes: |
+  2-day event (Aug 20–21 2025). 71 images captured.
+  Conference identity not yet confirmed — run extraction to identify from slide branding.
+_date_cluster: ["20250820", "20250821"]
+_status: "unextracted"
