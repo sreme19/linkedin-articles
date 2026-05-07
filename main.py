@@ -30,7 +30,7 @@ def cli():
 @cli.command()
 @click.option(
     "--input", "-i", "input_path", default=None,
-    help="Path to a single file or a directory of artefacts (PDF, PNG, JPG, WEBP).",
+    help="Path to a single file or directory (PDF, PNG, JPG, WEBP, TXT, MD).",
 )
 @click.option(
     "--manifest", "-m", default=None,
@@ -39,7 +39,10 @@ def cli():
 @click.option(
     "--format", "-f", "fmt",
     type=click.Choice(
-        ["article", "carousel", "infographic", "short_post", "hot_take", "reaction_post", "story_post", "all", "auto"],
+        [
+            "article", "carousel", "infographic", "short_post", "hot_take",
+            "reaction_post", "story_post", "non_ai_post", "all", "auto",
+        ],
         case_sensitive=False,
     ),
     default="auto",
@@ -47,7 +50,7 @@ def cli():
 )
 @click.option(
     "--output-dir", "-o", default=None,
-    help="Output directory (default: data/output/YYYY-MM-DD_conference-name).",
+    help="Output directory (default: data/output or data/private_output in privacy mode).",
 )
 @click.option(
     "--no-review", is_flag=True, default=False,
@@ -61,7 +64,11 @@ def cli():
     "--rotate", is_flag=True, default=False,
     help="Auto-select a conference different from the last posted one.",
 )
-def run(input_path, manifest, fmt, output_dir, no_review, sample, rotate):
+@click.option(
+    "--privacy-mode", is_flag=True, default=False,
+    help="Process private notes with git-ignore checks and anonymized output.",
+)
+def run(input_path, manifest, fmt, output_dir, no_review, sample, rotate, privacy_mode):
     """Process conference artefacts and generate LinkedIn content."""
 
     if not os.getenv("ANTHROPIC_API_KEY"):
@@ -81,6 +88,7 @@ def run(input_path, manifest, fmt, output_dir, no_review, sample, rotate):
     from pipeline.format_recommender import recommend_and_confirm
     from pipeline.generate import generate_content
     from pipeline.export import export_run
+    from pipeline.privacy import anonymize_artifacts, assert_private_path, private_manifest
 
     # ── Rotate: auto-pick a different conference than last posted ─────────────
     if rotate:
@@ -92,10 +100,24 @@ def run(input_path, manifest, fmt, output_dir, no_review, sample, rotate):
         console.print("[red]Error: --input is required unless using --rotate.[/red]")
         sys.exit(1)
 
+    if privacy_mode:
+        if fmt not in {"auto", "all", "non_ai_post"}:
+            console.print("[red]Privacy mode currently supports only --format non_ai_post (or auto/all).[/red]")
+            sys.exit(1)
+        try:
+            assert_private_path(input_path, BASE_DIR)
+            if output_dir:
+                assert_private_path(output_dir, BASE_DIR)
+        except ValueError as e:
+            console.print(f"[red]{e}[/red]")
+            sys.exit(1)
+
     # ── 1. Ingest ─────────────────────────────────────────────────────────────
     console.print(Panel("[bold blue]Step 1 / 6 — Ingesting artefacts[/bold blue]"))
 
     manifest_data = load_manifest(manifest or "manifest.yaml")
+    if privacy_mode:
+        manifest_data = private_manifest(manifest_data)
     conference = manifest_data.get("conference_name", "Unknown Conference")
     # Will be updated after synthesis if manifest has no real conference name
 
@@ -162,6 +184,10 @@ def run(input_path, manifest, fmt, output_dir, no_review, sample, rotate):
         console.print("[red]No content could be extracted from the provided files.[/red]")
         sys.exit(1)
 
+    if privacy_mode:
+        artifacts = anonymize_artifacts(artifacts)
+        console.print("[dim]Privacy mode: anonymized extracted notes before synthesis/export[/dim]")
+
     # Persist extracted content
     slug = conference.replace(" ", "-")[:30]
     extracted_path = processed_dir / f"{date.today().isoformat()}_{slug}_extracted.json"
@@ -204,9 +230,12 @@ def run(input_path, manifest, fmt, output_dir, no_review, sample, rotate):
     console.print(Panel("[bold blue]Step 4 / 6 — Format recommendation[/bold blue]"))
 
     if fmt == "auto":
-        formats = recommend_and_confirm(synthesis, image_count, no_review)
+        if privacy_mode:
+            formats = ["non_ai_post"]
+        else:
+            formats = recommend_and_confirm(synthesis, image_count, no_review)
     elif fmt == "all":
-        formats = ["article", "carousel", "infographic", "short_post", "hot_take"]
+        formats = ["non_ai_post"] if privacy_mode else ["article", "carousel", "infographic", "short_post", "hot_take"]
     else:
         formats = [fmt]
 
@@ -230,10 +259,14 @@ def run(input_path, manifest, fmt, output_dir, no_review, sample, rotate):
 
     if output_dir is None:
         out_slug = conference.lower().replace(" ", "-").replace("/", "-")[:30]
-        output_dir = str(DATA_DIR / "output" / f"{date.today().isoformat()}_{out_slug}")
+        base_output = DATA_DIR / ("private_output" if privacy_mode else "output")
+        output_dir = str(base_output / f"{date.today().isoformat()}_{out_slug}")
 
     export_run(generated, synthesis, manifest_data, Path(output_dir))
-    _update_topics_log(topics_log, synthesis, manifest_data, output_dir)
+    if privacy_mode:
+        console.print("  [dim]Privacy mode: skipped tracked topics_log.json update[/dim]")
+    else:
+        _update_topics_log(topics_log, synthesis, manifest_data, output_dir)
 
     console.print(
         f"\n[bold green]Done![/bold green]  "

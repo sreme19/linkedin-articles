@@ -16,3 +16,13 @@ data/processed/*
 !data/processed/.gitkeep
 data/output/*
 !data/output/.gitkeep
+
+# Private/local source material and privacy-mode outputs
+data/private/*
+!data/private/.gitkeep
+data/meeting_notes/*
+!data/meeting_notes/.gitkeep
+data/private_output/*
+!data/private_output/.gitkeep
+manifest.local.yaml
+config/events/private/*

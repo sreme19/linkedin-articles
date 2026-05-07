@@ -30,7 +30,7 @@ def export_run(
             prompt = _export_infographic(content_data, output_dir)
             if prompt:
                 image_prompts.append(prompt)
-        elif fmt_name in ("short_post", "hot_take", "reaction_post", "story_post"):
+        elif fmt_name in ("short_post", "hot_take", "reaction_post", "story_post", "non_ai_post"):
             img_prompt = _export_short_format(content_data, fmt_name, output_dir)
             printed_posts.append({"format": fmt_name, "content": content_data["content"], "image_prompt": img_prompt})
 
@@ -66,7 +66,10 @@ def export_run(
                 border_style="magenta",
             ))
 
-    _update_posts_log(printed_posts, synthesis, manifest, output_dir)
+    if not manifest.get("privacy_mode"):
+        _update_posts_log(printed_posts, synthesis, manifest, output_dir)
+    elif printed_posts:
+        console.print("  [dim]Privacy mode: skipped tracked posts_log.json update[/dim]")
 
 
 def _export_article(data: Dict, output_dir: Path) -> None:

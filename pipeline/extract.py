@@ -1,8 +1,10 @@
 import base64
 import io
 import json
+import zipfile
 from pathlib import Path
 from typing import Dict, Optional, Tuple
+from xml.etree import ElementTree
 
 import anthropic
 from PIL import Image
@@ -197,8 +199,51 @@ def _extract_image_file(path: Path, context: Dict) -> Dict:
     return result
 
 
+def _extract_text_file(path: Path, context: Dict) -> Dict:
+    text = path.read_text(encoding="utf-8", errors="replace")
+    return _extract_private_safe_text(path, text, context, "text")
+
+
+def _extract_docx_text(path: Path) -> str:
+    with zipfile.ZipFile(path) as zf:
+        xml = zf.read("word/document.xml")
+    root = ElementTree.fromstring(xml)
+    ns = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+    paragraphs = []
+    for para in root.findall(".//w:p", ns):
+        parts = [node.text or "" for node in para.findall(".//w:t", ns)]
+        line = "".join(parts).strip()
+        if line:
+            paragraphs.append(line)
+    return "\n".join(paragraphs)
+
+
+def _extract_docx_file(path: Path, context: Dict) -> Dict:
+    text = _extract_docx_text(path)
+    return _extract_private_safe_text(path, text, context, "docx")
+
+
+def _extract_private_safe_text(path: Path, text: str, context: Dict, source_type: str) -> Dict:
+    if context.get("privacy_mode"):
+        from pipeline.privacy import anonymize_text
+        text = anonymize_text(text, strict=True)
+    result = _extract_via_text(text, context)
+    result["source_file"] = str(path)
+    result["source_type"] = source_type
+    return result
+
+
 def _extract_pdf(path: Path, context: Dict) -> Dict:
     max_pages = context.get("max_pages_per_pdf", 30)
+
+    if context.get("privacy_mode"):
+        try:
+            import pdfplumber
+            with pdfplumber.open(path) as pdf:
+                text = "\n\n".join((p.extract_text() or "") for p in pdf.pages[:max_pages])
+        except Exception as e:
+            raise RuntimeError(f"Privacy-mode PDF text extraction failed: {e}") from e
+        return _extract_private_safe_text(path, text, context, "pdf")
 
     try:
         from pdf2image import convert_from_path
@@ -264,6 +309,10 @@ def extract_artifact(path: Path, context: Dict) -> Optional[Dict]:
         return _extract_pdf(path, context)
     if suffix in {".png", ".jpg", ".jpeg", ".webp"}:
         return _extract_image_file(path, context)
+    if suffix in {".txt", ".md"}:
+        return _extract_text_file(path, context)
+    if suffix == ".docx":
+        return _extract_docx_file(path, context)
 
     console.print(f"  [yellow]Unsupported: {suffix}[/yellow]")
     return None

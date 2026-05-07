@@ -76,7 +76,7 @@ data/raw/
   photo_slide_02.jpg
 ```
 
-Supported formats: **PDF, PNG, JPG, JPEG, WEBP**
+Supported formats: **PDF, PNG, JPG, JPEG, WEBP, TXT, MD, DOCX**
 
 ---
 
@@ -118,3 +118,22 @@ Open `data/output/YYYY-MM-DD_conference-name/`:
 Before your second run, edit `config/persona.md` to match your actual writing style. The default is a reasonable starting point but the output improves significantly once it reflects how you actually write.
 
 See [Persona Guide](persona-guide.md) for details.
+
+---
+
+## Private Meeting Notes
+
+For confidential meeting notes, use privacy mode and keep files under an ignored folder:
+
+```bash
+mkdir -p data/private/meeting-notes
+python main.py run --input data/private/meeting-notes --privacy-mode --format non_ai_post
+```
+
+Privacy mode:
+
+- refuses to process in-repo files that are tracked or not ignored by git
+- anonymizes extracted notes before synthesis
+- writes output to ignored `data/private_output/` by default
+- skips tracked topic and post logs
+- generates `non_ai_post.md` without company names, personal names, client names, project names, URLs, emails, or identifying details

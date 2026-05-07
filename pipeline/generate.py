@@ -36,10 +36,14 @@ def generate_content(
 ) -> Dict:
     client = anthropic.Anthropic()
 
+    privacy_mode = bool(manifest.get("privacy_mode"))
     context = {
         "persona": persona,
         "conference_name": manifest.get("conference_name", "the conference"),
         "conference_date": manifest.get("conference_date", ""),
+        "privacy_mode": privacy_mode,
+        "professional_context": manifest.get("professional_context", "8 years in one organization"),
+        "privacy_rules": manifest.get("privacy_rules", []),
         "conference_summary": synthesis.get("conference_summary", ""),
         "themes": synthesis.get("themes", []),
         "hot_takes": synthesis.get("hot_takes", []),
@@ -54,8 +58,13 @@ def generate_content(
     template = _env.get_template(f"{format_name}_prompt.j2")
     prompt = template.render(**context)
 
-    SHORT_FORMATS = {"short_post", "hot_take", "reaction_post", "story_post"}
+    SHORT_FORMATS = {"short_post", "hot_take", "reaction_post", "story_post", "non_ai_post"}
     system_msg = "You are a LinkedIn content writer. Follow all instructions precisely."
+    if privacy_mode:
+        system_msg += (
+            " Privacy is mandatory: do not reveal or infer company names, personal names, "
+            "client names, project names, internal tools, emails, URLs, or identifying details."
+        )
     if format_name == "carousel":
         system_msg = (
             "You are a LinkedIn content writer. "

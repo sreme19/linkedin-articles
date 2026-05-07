@@ -12,7 +12,7 @@ from rich.table import Table
 
 console = Console()
 
-SUPPORTED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".webp"}
+SUPPORTED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".webp", ".txt", ".md", ".docx"}
 _DATE_RE = re.compile(r"(20\d{6}|19\d{6})")
 
 

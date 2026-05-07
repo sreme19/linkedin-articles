@@ -20,6 +20,9 @@ EXTRACTED ARTEFACTS ({count} items):
 TOPICS ALREADY COVERED BY THIS AUTHOR (flag if we are retreading ground):
 {covered_topics}
 
+PRIVACY INSTRUCTIONS:
+{privacy_instructions}
+
 YOUR TASK:
 Analyse ALL the artefacts above and return ONLY valid JSON — no other text, no markdown fences.
 
@@ -28,7 +31,7 @@ Analyse ALL the artefacts above and return ONLY valid JSON — no other text, no
 3. Identify HOT TAKES: specific claims that are counterintuitive, challenge industry consensus, or would surprise a senior data practitioner. Be specific about WHY each is surprising.
 4. Pull the 3 best quotes and 3 best data points from all artefacts
 5. Write one compelling LinkedIn hook line (the sentence that stops the scroll)
-6. Identify the top 5–8 specific tools, products, platforms, or companies named across all artefacts — use exact names as they appear in slides (e.g. "AWS Kiro", "Anthropic Messages API", "Bedrock Agents", "Dhan", "OpenSearch"). These will be used for explicit name-drops in the post.
+6. Identify the top 5–8 specific tools, products, platforms, or companies named across all artefacts — use exact names as they appear in slides unless privacy instructions forbid it. These may be used for explicit name-drops in public conference posts.
 7. Recommend one primary content format: article, carousel, infographic, or short_post — with a 5-word reason
 
 JSON format:
@@ -119,6 +122,14 @@ def synthesize(artifacts: List[Dict], manifest: Dict, topics_log: Dict) -> Dict:
         count=len(artifacts),
         artefacts=json.dumps(summaries, indent=2),
         covered_topics=json.dumps(covered[:20]) if covered else "[]",
+        privacy_instructions=(
+            "Privacy mode is ON. Do not include company names, personal names, client names, "
+            "project names, team names, internal tool names, emails, URLs, or identifying source details. "
+            "Generalize them as 'my organization', 'a colleague', 'an internal platform', or 'a customer'. "
+            "Preserve reusable lessons and patterns only."
+            if manifest.get("privacy_mode")
+            else "None."
+        ),
     )
 
     response = client.messages.create(

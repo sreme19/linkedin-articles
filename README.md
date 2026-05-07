@@ -13,11 +13,12 @@ Drop your files in, answer a few prompts, get back a long-form article, carousel
 - **Synthesis brief** — clusters insights across all artefacts into 3–5 themes with novelty scoring; you review and approve before generation
 - **Format recommender** — picks the right format(s) based on your content (carousel for slide-heavy runs, article for dense conceptual content, etc.)
 - **Topic deduplication** — tracks what you've already written about across runs so you don't repeat yourself
-- **Four output formats**:
+- **Output formats**:
   - `article.md` — 600–900 word long-form LinkedIn article
   - `carousel.md` + `carousel.pptx` — 8–12 slide carousel with PPTX ready for design
   - `infographic.md` — visual concept spec + full DALL-E/ChatGPT image prompt + caption
   - `short_post.md` — punchy 150–250 word post with bullet takeaways
+  - `non_ai_post.md` — privacy-safe professional reflection from meeting notes, without company or personal details
 - **Image generation prompts** — consolidated in `image_prompts.md` for use with ChatGPT / DALL-E / Midjourney
 
 ---
@@ -91,8 +92,19 @@ python main.py run --input data/raw/ --manifest manifest.yaml
 ```bash
 python main.py run --input data/raw/ --format article
 python main.py run --input data/raw/ --format carousel
+python main.py run --input data/private/meeting-notes --privacy-mode --format non_ai_post
 python main.py run --input data/raw/ --format all
 ```
+
+### Private meeting notes
+
+For private notes, put `.txt`, `.md`, `.docx`, or text-readable `.pdf` files under `data/private/` or `data/meeting_notes/` and run with `--privacy-mode`:
+
+```bash
+python main.py run --input data/private/ --privacy-mode --format non_ai_post
+```
+
+Privacy mode refuses to process in-repo files unless git is already ignoring them, anonymizes extracted text before synthesis, writes output to ignored `data/private_output/`, and skips tracked topic/post logs.
 
 ### Skip review gates (automation)
 
@@ -125,9 +137,10 @@ Commands:
 Options for `run`:
   -i, --input PATH         File or directory to process  [required]
   -m, --manifest PATH      manifest.yaml path (default: manifest.yaml)
-  -f, --format CHOICE      article | carousel | infographic | short_post | all | auto
+  -f, --format CHOICE      article | carousel | infographic | short_post | hot_take | reaction_post | story_post | non_ai_post | all | auto
   -o, --output-dir PATH    Output directory
   --no-review              Skip human review gates
+  --privacy-mode           Enforce ignored inputs, anonymized synthesis, and ignored private output
 ```
 
 ---
@@ -197,9 +210,12 @@ linkedin-articles/
 │   ├── hashtags.json          # curated hashtag tiers
 │   └── manifest_template.yaml
 ├── data/
-│   ├── raw/                   # drop artefacts here
+│   ├── raw/                   # drop public artefacts here
+│   ├── private/               # ignored private source notes
+│   ├── meeting_notes/         # ignored private meeting notes
 │   ├── processed/             # extracted JSON + hash log
-│   └── output/                # generated content runs
+│   ├── output/                # generated public content runs
+│   └── private_output/        # ignored privacy-mode output
 ├── docs/                      # extended documentation
 └── topics_log.json            # cross-run topic deduplication log
 ```
