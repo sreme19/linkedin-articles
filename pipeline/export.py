@@ -4,6 +4,7 @@ from datetime import date
 from pathlib import Path
 from typing import Dict, List, Optional
 
+from pipeline.editorial import validate_post_text
 from rich.console import Console
 from rich.panel import Panel
 
@@ -19,6 +20,7 @@ def export_run(
     output_dir.mkdir(parents=True, exist_ok=True)
     image_prompts: List[str] = []
     printed_posts: List[Dict] = []
+    post_checks: Dict[str, Dict] = {}
 
     for fmt_name, content_data in generated.items():
         if fmt_name == "article":
@@ -33,6 +35,12 @@ def export_run(
         elif fmt_name in ("short_post", "hot_take", "reaction_post", "story_post", "non_ai_post"):
             img_prompt = _export_short_format(content_data, fmt_name, output_dir)
             printed_posts.append({"format": fmt_name, "content": content_data["content"], "image_prompt": img_prompt})
+            mode = synthesis.get("_editorial", {}).get("post_mode", "")
+            post_checks[fmt_name] = validate_post_text(
+                content_data["content"],
+                privacy_mode=bool(manifest.get("privacy_mode")),
+                mode=mode,
+            )
 
     if image_prompts:
         header = "# Image Generation Prompts\n\nUse these with ChatGPT, DALL-E, or Midjourney.\n\n"
@@ -47,8 +55,12 @@ def export_run(
         "formats_generated": list(generated.keys()),
         "themes": [t["title"] for t in synthesis.get("themes", [])],
         "hot_takes_count": len(synthesis.get("hot_takes", [])),
+        "editorial": synthesis.get("_editorial", {}),
     }
     (output_dir / "run_summary.json").write_text(json.dumps(summary, indent=2))
+    if post_checks:
+        (output_dir / "editorial_checks.json").write_text(json.dumps(post_checks, indent=2))
+        console.print(f"  Editorial checks → [dim]{output_dir / 'editorial_checks.json'}[/dim]")
     console.print(f"  [green]All output → {output_dir}[/green]")
 
     # Print each post + image prompt directly to terminal

@@ -13,6 +13,9 @@ Drop your files in, answer a few prompts, get back a long-form article, carousel
 - **Synthesis brief** — clusters insights across all artefacts into 3–5 themes with novelty scoring; you review and approve before generation
 - **Format recommender** — picks the right format(s) based on your content (carousel for slide-heavy runs, article for dense conceptual content, etc.)
 - **Topic deduplication** — tracks what you've already written about across runs so you don't repeat yourself
+- **Editorial memory** — learns from your final edited posts, not only the first AI draft
+- **Private post QA** — checks drafts for privacy risks, repeated topic clusters, and style regressions
+- **Safe public examples** — can use a curated source-linked set of public business examples (Apple, Microsoft, LEGO, etc.) without leaking private meeting context
 - **Output formats**:
   - `article.md` — 600–900 word long-form LinkedIn article
   - `carousel.md` + `carousel.pptx` — 8–12 slide carousel with PPTX ready for design
@@ -124,15 +127,72 @@ python main.py run --input data/raw/ --output-dir ~/Desktop/my-conference-conten
 python main.py topics
 ```
 
+### Editorial memory and post QA
+
+The app has a small "rules engine" for learning your editorial preferences.
+This is especially useful for private meeting notes where you may edit the AI draft
+before posting. The important idea is:
+
+1. The app generates a draft.
+2. You edit it into the final version you actually like.
+3. You record that final version.
+4. Future runs use that final version as a style and topic signal.
+
+Record the user-edited final version after you publish or approve a draft:
+
+```bash
+python main.py record-final \
+  --file data/private_output/YYYY-MM-DD_topic/non_ai_post.md \
+  --mode management_reflection \
+  --topic "Company phase alignment" \
+  --notes "What changed and why the final worked"
+```
+
+This writes to `data/final_posts_log.json`. Treat that file as public-safe:
+only record final posts that you would be comfortable committing to git.
+
+Check a draft for privacy risks, repeated topic clusters, and style issues:
+
+```bash
+python main.py check-post \
+  --file data/private_output/YYYY-MM-DD_topic/non_ai_post.md \
+  --privacy-mode \
+  --mode management_reflection
+```
+
+The most common modes are:
+
+| Mode | Use it when |
+|---|---|
+| `management_reflection` | Turning private work notes into a broad leadership or management post |
+| `career_transition` | Writing about role changes, transitions, or professional evolution |
+| `leadership_lesson` | Writing a general operating lesson for leaders or managers |
+| `ai_data_practitioner` | Writing about data, analytics, AI, agents, or technical implementation |
+| `public_example_analysis` | Starting from a public business example rather than private notes |
+
+Where the rules live:
+
+| File | What it does |
+|---|---|
+| `config/editorial_learnings.json` | Stores writing rules learned from final approved posts |
+| `config/topic_clusters.json` | Groups similar ideas so the app can warn about repeats |
+| `data/final_posts_log.json` | Stores final user-approved posts that future runs learn from |
+| `data/public_examples.json` | Stores 100 safe public business examples with source URLs |
+| `pipeline/editorial.py` | Runs the rules: mode detection, repeat checks, example selection, and QA |
+
+For a deeper walkthrough, read [Editorial Memory](docs/editorial-memory.md).
+
 ---
 
 ## CLI Reference
 
 ```
 Commands:
-  run     Process artefacts and generate LinkedIn content
-  init    Create a manifest.yaml template in the current directory
-  topics  Show all previously covered topics
+  run           Process artefacts and generate LinkedIn content
+  init          Create a manifest.yaml template in the current directory
+  topics        Show all previously covered topics
+  check-post    Check one draft for privacy, style, and topic-cluster issues
+  record-final  Save a user-approved final post so future runs learn from it
 
 Options for `run`:
   -i, --input PATH         File or directory to process  [required]
@@ -199,6 +259,7 @@ linkedin-articles/
 │   ├── synthesize.py          # theme clustering + hot-take detection
 │   ├── format_recommender.py  # rule-based + LLM format selection
 │   ├── generate.py            # Jinja2 prompt rendering + Claude generation
+│   ├── editorial.py           # editorial memory, repeat checks, public examples
 │   └── export.py              # markdown + PPTX output
 ├── templates/
 │   ├── article_prompt.j2
@@ -208,6 +269,8 @@ linkedin-articles/
 ├── config/
 │   ├── persona.md             # your LinkedIn voice
 │   ├── hashtags.json          # curated hashtag tiers
+│   ├── editorial_learnings.json # final-post style rules
+│   ├── topic_clusters.json    # semantic-ish repeat detection clusters
 │   └── manifest_template.yaml
 ├── data/
 │   ├── raw/                   # drop public artefacts here
@@ -215,7 +278,9 @@ linkedin-articles/
 │   ├── meeting_notes/         # ignored private meeting notes
 │   ├── processed/             # extracted JSON + hash log
 │   ├── output/                # generated public content runs
-│   └── private_output/        # ignored privacy-mode output
+│   ├── private_output/        # ignored privacy-mode output
+│   ├── final_posts_log.json   # public-safe final posts used for learning
+│   └── public_examples.json   # source-linked public business examples
 ├── docs/                      # extended documentation
 └── topics_log.json            # cross-run topic deduplication log
 ```
@@ -228,6 +293,7 @@ linkedin-articles/
 - [Manifest Reference](docs/manifest-reference.md)
 - [Output Formats](docs/output-formats.md)
 - [Persona Guide](docs/persona-guide.md)
+- [Editorial Memory](docs/editorial-memory.md)
 - [Advanced Usage](docs/advanced-usage.md)
 
 ---

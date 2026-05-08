@@ -148,7 +148,7 @@ def private_manifest(manifest: Dict) -> Dict:
         "speaker": "Private notes",
         "speakers": [],
         "notes": (
-            "Write from the perspective of someone who has spent 8 years in one organization. "
+            "Write from the perspective of someone with long-term leadership experience. "
             "Do not name the organization, colleagues, customers, teams, projects, internal tools, "
             "or any personally identifying details."
         ),

@@ -1,0 +1,1610 @@
+{
+  "version": 1,
+  "description": "Safe public examples for LinkedIn posts. Use only as widely known public-history analogies; never imply connection to private notes.",
+  "examples": [
+    {
+      "id": "apple_jobs_focus_1997",
+      "title": "Steve Jobs refocused Apple around fewer products",
+      "company": "Apple",
+      "years": "1997-2001",
+      "phase": "turnaround",
+      "lesson": "When a company is fighting for survival, subtraction can create the clarity needed for reinvention.",
+      "tags": [
+        "management_reflection",
+        "company_phase_alignment",
+        "turnaround",
+        "focus",
+        "simplifying"
+      ],
+      "source_url": "https://www.hbs.edu/faculty/Pages/item.aspx?num=66298",
+      "source_name": "Harvard Business School"
+    },
+    {
+      "id": "apple_cook_operations_2011",
+      "title": "Tim Cook scaled Apple through operational excellence",
+      "company": "Apple",
+      "years": "2011-2020s",
+      "phase": "scaling",
+      "lesson": "The leadership style that scales a company can be different from the one that originally reinvented it.",
+      "tags": [
+        "management_reflection",
+        "company_phase_alignment",
+        "scaling",
+        "operations"
+      ],
+      "source_url": "https://www.apple.com/leadership/tim-cook/",
+      "source_name": "Apple"
+    },
+    {
+      "id": "microsoft_nadella_cloud_2014",
+      "title": "Satya Nadella shifted Microsoft toward cloud and subscriptions",
+      "company": "Microsoft",
+      "years": "2014-2020s",
+      "phase": "reinvention",
+      "lesson": "Cultural reset and business-model reset often have to move together.",
+      "tags": [
+        "management_reflection",
+        "company_phase_alignment",
+        "reinvention",
+        "culture",
+        "cloud"
+      ],
+      "source_url": "https://www.hbs.edu/faculty/Pages/item.aspx?num=53450",
+      "source_name": "Harvard Business School"
+    },
+    {
+      "id": "microsoft_server_tools_cloud",
+      "title": "Microsoft balanced packaged software with cloud services",
+      "company": "Microsoft",
+      "years": "2011-2013",
+      "phase": "transition",
+      "lesson": "Leaders often have to protect the current profit engine while building the next one.",
+      "tags": [
+        "management_reflection",
+        "company_phase_alignment",
+        "exploration",
+        "optimization",
+        "cloud"
+      ],
+      "source_url": "https://www.hbs.edu/faculty/Pages/item.aspx?num=44158",
+      "source_name": "Harvard Business School"
+    },
+    {
+      "id": "netflix_streaming_pivot",
+      "title": "Netflix moved from DVD rentals to streaming",
+      "company": "Netflix",
+      "years": "2007-2013",
+      "phase": "business model pivot",
+      "lesson": "Real reinvention may require cannibalizing the business model that still works today.",
+      "tags": [
+        "management_reflection",
+        "company_phase_alignment",
+        "reinvention",
+        "business_model"
+      ],
+      "source_url": "https://www.hbs.edu/faculty/Pages/item.aspx?num=56185",
+      "source_name": "Harvard Business School"
+    },
+    {
+      "id": "netflix_culture_context",
+      "title": "Netflix codified freedom, responsibility, and context",
+      "company": "Netflix",
+      "years": "2009-2018",
+      "phase": "scaling culture",
+      "lesson": "Fast-scaling teams need context and accountability more than approval chains.",
+      "tags": [
+        "management_reflection",
+        "leadership_lesson",
+        "scaling",
+        "culture"
+      ],
+      "source_url": "https://www.hbs.edu/faculty/Pages/item.aspx?num=56185",
+      "source_name": "Harvard Business School"
+    },
+    {
+      "id": "adobe_subscription_shift",
+      "title": "Adobe moved from boxed software to Creative Cloud subscriptions",
+      "company": "Adobe",
+      "years": "2011-2015",
+      "phase": "business model pivot",
+      "lesson": "A painful transition can be rational when the old revenue model limits future resilience.",
+      "tags": [
+        "management_reflection",
+        "company_phase_alignment",
+        "reinvention",
+        "business_model"
+      ],
+      "source_url": "https://www.adobe.com/about-adobe/fast-facts.html",
+      "source_name": "Adobe"
+    },
+    {
+      "id": "adobe_checkin_feedback",
+      "title": "Adobe replaced annual reviews with Check-in feedback",
+      "company": "Adobe",
+      "years": "2012-2016",
+      "phase": "culture change",
+      "lesson": "Changing performance rhythms can change the culture faster than rewriting values statements.",
+      "tags": [
+        "management_reflection",
+        "leadership_lesson",
+        "culture",
+        "operations"
+      ],
+      "source_url": "https://blog.adobe.com/en/publish/2017/03/22/check-in-performance-management",
+      "source_name": "Adobe"
+    },
+    {
+      "id": "ibm_gerstner_turnaround",
+      "title": "Lou Gerstner kept IBM together and shifted toward services",
+      "company": "IBM",
+      "years": "1993-2002",
+      "phase": "turnaround",
+      "lesson": "Sometimes the bold move is not breaking up the company, but finding a new logic for why it should stay together.",
+      "tags": [
+        "management_reflection",
+        "turnaround",
+        "company_phase_alignment",
+        "services"
+      ],
+      "source_url": "https://www.hbs.edu/faculty/Pages/item.aspx?num=27035",
+      "source_name": "Harvard Business School"
+    },
+    {
+      "id": "lego_turnaround_focus",
+      "title": "LEGO recovered by cutting complexity and returning to the core",
+      "company": "LEGO",
+      "years": "2004-2015",
+      "phase": "turnaround",
+      "lesson": "Growth can create the complexity that later has to be removed for the company to survive.",
+      "tags": [
+        "management_reflection",
+        "company_phase_alignment",
+        "turnaround",
+        "simplifying",
+        "focus"
+      ],
+      "source_url": "https://cisr.mit.edu/publication/MIT_CISRwp407_TheLEGOGroup_AndersenRoss",
+      "source_name": "MIT CISR"
+    },
+    {
+      "id": "lego_digital_platform",
+      "title": "LEGO built digital capability on top of disciplined operations",
+      "company": "LEGO",
+      "years": "2010s",
+      "phase": "digital transformation",
+      "lesson": "Digital ambition works better after the operating core has been simplified.",
+      "tags": [
+        "management_reflection",
+        "optimization",
+        "digital_transformation",
+        "scaling"
+      ],
+      "source_url": "https://cisr.mit.edu/publication/MIT_CISRwp407_TheLEGOGroup_AndersenRoss",
+      "source_name": "MIT CISR"
+    },
+    {
+      "id": "dominos_pizza_turnaround",
+      "title": "Domino's rebuilt product credibility and digital ordering",
+      "company": "Domino's",
+      "years": "2009-2015",
+      "phase": "turnaround",
+      "lesson": "A turnaround can start by admitting the product problem before scaling the technology story.",
+      "tags": [
+        "management_reflection",
+        "turnaround",
+        "customer_focus",
+        "digital_transformation"
+      ],
+      "source_url": "https://www.dominos.com/en/pages/content/our-company/inside-dominos.jsp",
+      "source_name": "Domino's"
+    },
+    {
+      "id": "starbucks_schultz_return",
+      "title": "Howard Schultz returned to reset Starbucks operations and experience",
+      "company": "Starbucks",
+      "years": "2008-2010",
+      "phase": "turnaround",
+      "lesson": "When growth dilutes the operating experience, leaders may need to pause and retrain the system.",
+      "tags": [
+        "management_reflection",
+        "turnaround",
+        "operations",
+        "customer_focus"
+      ],
+      "source_url": "https://stories.starbucks.com/stories/2008/starbucks-transformation-agenda/",
+      "source_name": "Starbucks"
+    },
+    {
+      "id": "starbucks_niccol_reset",
+      "title": "Starbucks brought in Brian Niccol for a customer-traffic reset",
+      "company": "Starbucks",
+      "years": "2024-2026",
+      "phase": "turnaround",
+      "lesson": "A mature brand may need operational simplification before it can earn back customer frequency.",
+      "tags": [
+        "management_reflection",
+        "company_phase_alignment",
+        "turnaround",
+        "operations"
+      ],
+      "source_url": "https://www.imd.org/research-knowledge/strategy/case-studies/big-fix-at-starbucks-will-customers-come-back-the-new-ceo-s-first-year/",
+      "source_name": "IMD"
+    },
+    {
+      "id": "walmart_omnichannel",
+      "title": "Walmart invested in omnichannel retail and digital operations",
+      "company": "Walmart",
+      "years": "2010s-2020s",
+      "phase": "digital transformation",
+      "lesson": "Large incumbents can compete digitally when transformation reaches supply chain, data, and store operations.",
+      "tags": [
+        "management_reflection",
+        "scaling",
+        "digital_transformation",
+        "operations"
+      ],
+      "source_url": "https://www.techtarget.com/searcherp/feature/4-powerful-digital-transformation-examples",
+      "source_name": "TechTarget"
+    },
+    {
+      "id": "walmart_jet_ecommerce",
+      "title": "Walmart accelerated ecommerce capability through Jet.com and digital investments",
+      "company": "Walmart",
+      "years": "2016-2020s",
+      "phase": "reinvention",
+      "lesson": "A scale advantage has to be rebuilt when customer behavior shifts channels.",
+      "tags": [
+        "management_reflection",
+        "reinvention",
+        "digital_transformation",
+        "scaling"
+      ],
+      "source_url": "https://corporate.walmart.com/news/2016/08/08/walmart-to-acquire-jet-com",
+      "source_name": "Walmart"
+    },
+    {
+      "id": "bestbuy_renew_blue",
+      "title": "Best Buy's Renew Blue restored retail relevance",
+      "company": "Best Buy",
+      "years": "2012-2019",
+      "phase": "turnaround",
+      "lesson": "A retailer under digital pressure can survive by improving service, cost discipline, and omnichannel execution together.",
+      "tags": [
+        "management_reflection",
+        "turnaround",
+        "optimization",
+        "customer_focus"
+      ],
+      "source_url": "https://corporate.bestbuy.com/best-buy-renew-blue/",
+      "source_name": "Best Buy"
+    },
+    {
+      "id": "target_owned_brands",
+      "title": "Target leaned into owned brands and store-led fulfillment",
+      "company": "Target",
+      "years": "2017-2020s",
+      "phase": "differentiation",
+      "lesson": "Operational assets can become strategic advantages when leaders stop treating them as legacy burdens.",
+      "tags": [
+        "management_reflection",
+        "operations",
+        "scaling",
+        "customer_focus"
+      ],
+      "source_url": "https://corporate.target.com/about/products-services/owned-brands",
+      "source_name": "Target"
+    },
+    {
+      "id": "nvidia_cuda_ai",
+      "title": "Nvidia's GPU and CUDA ecosystem positioned it for AI",
+      "company": "Nvidia",
+      "years": "2006-2020s",
+      "phase": "platform expansion",
+      "lesson": "Long-horizon platform bets can look adjacent for years before becoming central to the market.",
+      "tags": [
+        "management_reflection",
+        "exploration",
+        "scaling",
+        "platform"
+      ],
+      "source_url": "https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/",
+      "source_name": "Nvidia"
+    },
+    {
+      "id": "amd_lisa_su_focus",
+      "title": "AMD refocused under Lisa Su around high-performance computing",
+      "company": "AMD",
+      "years": "2014-2020s",
+      "phase": "turnaround",
+      "lesson": "Technical companies often recover when leadership narrows the strategy around a few execution-critical bets.",
+      "tags": [
+        "management_reflection",
+        "turnaround",
+        "focus",
+        "execution"
+      ],
+      "source_url": "https://www.amd.com/en/corporate/leadership/lisa-su.html",
+      "source_name": "AMD"
+    },
+    {
+      "id": "amazon_aws_internal_capability",
+      "title": "Amazon turned internal infrastructure discipline into AWS",
+      "company": "Amazon",
+      "years": "2000s-2010s",
+      "phase": "platform creation",
+      "lesson": "A capability built for internal scale can become a new business when leaders see the reusable platform underneath.",
+      "tags": [
+        "management_reflection",
+        "exploration",
+        "platform",
+        "scaling"
+      ],
+      "source_url": "https://aws.amazon.com/about-aws/",
+      "source_name": "AWS"
+    },
+    {
+      "id": "amazon_prime_flywheel",
+      "title": "Amazon Prime strengthened the customer-loyalty flywheel",
+      "company": "Amazon",
+      "years": "2005-2020s",
+      "phase": "scaling",
+      "lesson": "A strong operating model compounds when customer value, logistics, and membership economics reinforce each other.",
+      "tags": [
+        "management_reflection",
+        "scaling",
+        "operations",
+        "customer_focus"
+      ],
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-prime-history",
+      "source_name": "Amazon"
+    },
+    {
+      "id": "meta_year_efficiency",
+      "title": "Meta shifted from aggressive expansion to a year of efficiency",
+      "company": "Meta",
+      "years": "2023-2024",
+      "phase": "tightening",
+      "lesson": "The operating mode that fits a growth phase can become unsustainable when capital discipline returns.",
+      "tags": [
+        "management_reflection",
+        "company_phase_alignment",
+        "tightening",
+        "optimization"
+      ],
+      "source_url": "https://about.fb.com/news/2023/03/mark-zuckerberg-meta-year-of-efficiency/",
+      "source_name": "Meta"
+    },
+    {
+      "id": "google_alphabet_structure",
+      "title": "Google created Alphabet to separate core operations from bets",
+      "company": "Alphabet",
+      "years": "2015",
+      "phase": "structure change",
+      "lesson": "Exploration and optimization may need different governance structures to avoid distorting each other.",
+      "tags": [
+        "management_reflection",
+        "company_phase_alignment",
+        "exploration",
+        "structure"
+      ],
+      "source_url": "https://abc.xyz/investor/founders-letters/2015/",
+      "source_name": "Alphabet"
+    },
+    {
+      "id": "airbnb_pandemic_focus",
+      "title": "Airbnb refocused during the pandemic and prepared for IPO",
+      "company": "Airbnb",
+      "years": "2020",
+      "phase": "crisis reset",
+      "lesson": "Crisis can force leaders to clarify the core faster than a strategy offsite ever could.",
+      "tags": [
+        "management_reflection",
+        "turnaround",
+        "focus",
+        "crisis"
+      ],
+      "source_url": "https://news.airbnb.com/a-message-from-co-founder-and-ceo-brian-chesky/",
+      "source_name": "Airbnb"
+    },
+    {
+      "id": "uber_profitability_reset",
+      "title": "Uber shifted from growth-at-all-costs toward profitability discipline",
+      "company": "Uber",
+      "years": "2019-2020s",
+      "phase": "tightening",
+      "lesson": "Marketplace companies eventually have to prove that scale can translate into operating discipline.",
+      "tags": [
+        "management_reflection",
+        "tightening",
+        "optimization",
+        "scaling"
+      ],
+      "source_url": "https://investor.uber.com/news-events/news/press-release-details/2024/Uber-Announces-Results-for-Fourth-Quarter-and-Full-Year-2023/default.aspx",
+      "source_name": "Uber"
+    },
+    {
+      "id": "doordash_logistics_platform",
+      "title": "DoorDash expanded from restaurant delivery into local commerce logistics",
+      "company": "DoorDash",
+      "years": "2020s",
+      "phase": "platform expansion",
+      "lesson": "A narrow use case can become a broader platform when the underlying operating capability is reusable.",
+      "tags": [
+        "management_reflection",
+        "scaling",
+        "platform",
+        "operations"
+      ],
+      "source_url": "https://ir.doordash.com/overview/default.aspx",
+      "source_name": "DoorDash"
+    },
+    {
+      "id": "instacart_ads_platform",
+      "title": "Instacart added retail media to grocery delivery economics",
+      "company": "Instacart",
+      "years": "2020s",
+      "phase": "business model expansion",
+      "lesson": "Once a marketplace scales, the profit pool may come from data and attention, not just transactions.",
+      "tags": [
+        "management_reflection",
+        "business_model",
+        "scaling",
+        "platform"
+      ],
+      "source_url": "https://www.instacart.com/company/updates/instacart-launches-instacart-ads/",
+      "source_name": "Instacart"
+    },
+    {
+      "id": "zoom_enterprise_scale",
+      "title": "Zoom scaled rapidly during remote-work demand",
+      "company": "Zoom",
+      "years": "2020-2021",
+      "phase": "hypergrowth",
+      "lesson": "Hypergrowth tests whether product simplicity and operational resilience can scale at the same time.",
+      "tags": [
+        "management_reflection",
+        "scaling",
+        "operations",
+        "customer_focus"
+      ],
+      "source_url": "https://investors.zoom.us/news-releases/news-release-details/zoom-video-communications-reports-fourth-quarter-and-fiscal-year-0",
+      "source_name": "Zoom"
+    },
+    {
+      "id": "slack_enterprise_shift",
+      "title": "Slack moved from team chat virality toward enterprise workflows",
+      "company": "Slack",
+      "years": "2015-2020",
+      "phase": "scaling",
+      "lesson": "A bottom-up product often needs enterprise operating discipline as adoption matures.",
+      "tags": [
+        "management_reflection",
+        "scaling",
+        "business_model",
+        "operations"
+      ],
+      "source_url": "https://slack.com/blog/news/slack-joins-salesforce",
+      "source_name": "Slack"
+    },
+    {
+      "id": "salesforce_saas_category",
+      "title": "Salesforce built enterprise software around SaaS delivery",
+      "company": "Salesforce",
+      "years": "1999-2010s",
+      "phase": "category creation",
+      "lesson": "A delivery model can be the strategy when it changes adoption, pricing, and upgrade rhythms.",
+      "tags": [
+        "management_reflection",
+        "business_model",
+        "platform",
+        "scaling"
+      ],
+      "source_url": "https://www.salesforce.com/news/stories/the-history-of-salesforce/",
+      "source_name": "Salesforce"
+    },
+    {
+      "id": "servicenow_workflow_platform",
+      "title": "ServiceNow expanded from IT service management into workflow platform",
+      "company": "ServiceNow",
+      "years": "2010s-2020s",
+      "phase": "platform expansion",
+      "lesson": "A company can scale by turning one operational workflow into a repeatable platform pattern.",
+      "tags": [
+        "management_reflection",
+        "platform",
+        "scaling",
+        "operations"
+      ],
+      "source_url": "https://www.servicenow.com/company.html",
+      "source_name": "ServiceNow"
+    },
+    {
+      "id": "shopify_merchant_platform",
+      "title": "Shopify became infrastructure for independent commerce",
+      "company": "Shopify",
+      "years": "2010s-2020s",
+      "phase": "platform scaling",
+      "lesson": "Serving a fragmented customer base can work when the product abstracts operational complexity for them.",
+      "tags": [
+        "management_reflection",
+        "platform",
+        "scaling",
+        "customer_focus"
+      ],
+      "source_url": "https://www.shopify.com/about",
+      "source_name": "Shopify"
+    },
+    {
+      "id": "stripe_developer_first",
+      "title": "Stripe won by making payments developer-friendly",
+      "company": "Stripe",
+      "years": "2010s",
+      "phase": "category entry",
+      "lesson": "A technical audience can become the wedge when incumbents make integration too hard.",
+      "tags": [
+        "management_reflection",
+        "customer_focus",
+        "platform",
+        "execution"
+      ],
+      "source_url": "https://stripe.com/newsroom/news/stripe-launch",
+      "source_name": "Stripe"
+    },
+    {
+      "id": "github_developer_platform",
+      "title": "GitHub turned source control into a collaboration platform",
+      "company": "GitHub",
+      "years": "2008-2020s",
+      "phase": "platform creation",
+      "lesson": "A workflow tool can become infrastructure when it captures how communities and teams coordinate work.",
+      "tags": [
+        "management_reflection",
+        "platform",
+        "scaling",
+        "culture"
+      ],
+      "source_url": "https://github.com/about",
+      "source_name": "GitHub"
+    },
+    {
+      "id": "gitlab_remote_operating_model",
+      "title": "GitLab codified an all-remote operating model",
+      "company": "GitLab",
+      "years": "2010s-2020s",
+      "phase": "operating model",
+      "lesson": "Remote work scales better when the company treats documentation as infrastructure, not admin overhead.",
+      "tags": [
+        "management_reflection",
+        "operations",
+        "culture",
+        "scaling"
+      ],
+      "source_url": "https://handbook.gitlab.com/handbook/company/culture/all-remote/",
+      "source_name": "GitLab"
+    },
+    {
+      "id": "redhat_open_source_business",
+      "title": "Red Hat built an enterprise business around open source",
+      "company": "Red Hat",
+      "years": "1990s-2010s",
+      "phase": "business model creation",
+      "lesson": "Community distribution and enterprise trust can coexist when the business model matches customer risk.",
+      "tags": [
+        "management_reflection",
+        "business_model",
+        "platform",
+        "scaling"
+      ],
+      "source_url": "https://www.redhat.com/en/about/company",
+      "source_name": "Red Hat"
+    },
+    {
+      "id": "mongodb_atlas_cloud",
+      "title": "MongoDB expanded from database software into Atlas cloud service",
+      "company": "MongoDB",
+      "years": "2016-2020s",
+      "phase": "cloud transition",
+      "lesson": "Cloud shifts product companies from shipping software to operating services.",
+      "tags": [
+        "management_reflection",
+        "business_model",
+        "cloud",
+        "scaling"
+      ],
+      "source_url": "https://www.mongodb.com/company",
+      "source_name": "MongoDB"
+    },
+    {
+      "id": "datadog_platform_expansion",
+      "title": "Datadog expanded from infrastructure monitoring to observability platform",
+      "company": "Datadog",
+      "years": "2010s-2020s",
+      "phase": "platform expansion",
+      "lesson": "Adjacent product expansion works when it follows the customer's operating workflow.",
+      "tags": [
+        "management_reflection",
+        "platform",
+        "scaling",
+        "operations"
+      ],
+      "source_url": "https://www.datadoghq.com/about/",
+      "source_name": "Datadog"
+    },
+    {
+      "id": "snowflake_consumption_model",
+      "title": "Snowflake scaled cloud data warehousing with a consumption model",
+      "company": "Snowflake",
+      "years": "2010s-2020s",
+      "phase": "business model scaling",
+      "lesson": "Pricing architecture can shape adoption as much as product architecture.",
+      "tags": [
+        "management_reflection",
+        "business_model",
+        "cloud",
+        "scaling"
+      ],
+      "source_url": "https://www.snowflake.com/en/company/",
+      "source_name": "Snowflake"
+    },
+    {
+      "id": "intuit_design_for_delight",
+      "title": "Intuit pushed design thinking through operating routines",
+      "company": "Intuit",
+      "years": "2000s-2010s",
+      "phase": "culture change",
+      "lesson": "Innovation culture becomes real when teams get repeatable methods, not just permission to be creative.",
+      "tags": [
+        "management_reflection",
+        "culture",
+        "customer_focus",
+        "operations"
+      ],
+      "source_url": "https://www.intuit.com/company/",
+      "source_name": "Intuit"
+    },
+    {
+      "id": "atlassian_product_led",
+      "title": "Atlassian scaled with a product-led, low-touch sales motion",
+      "company": "Atlassian",
+      "years": "2000s-2010s",
+      "phase": "go-to-market innovation",
+      "lesson": "A company can scale differently when the product is designed to sell itself inside teams.",
+      "tags": [
+        "management_reflection",
+        "business_model",
+        "scaling",
+        "customer_focus"
+      ],
+      "source_url": "https://www.atlassian.com/company",
+      "source_name": "Atlassian"
+    },
+    {
+      "id": "hubspot_inbound_category",
+      "title": "HubSpot built a category around inbound marketing",
+      "company": "HubSpot",
+      "years": "2006-2010s",
+      "phase": "category creation",
+      "lesson": "Owning a language for customer behavior can create market pull before the product suite matures.",
+      "tags": [
+        "management_reflection",
+        "category_creation",
+        "scaling",
+        "customer_focus"
+      ],
+      "source_url": "https://www.hubspot.com/our-story",
+      "source_name": "HubSpot"
+    },
+    {
+      "id": "paypal_focus_payments",
+      "title": "PayPal focused from multiple ideas into online payments",
+      "company": "PayPal",
+      "years": "1999-2002",
+      "phase": "focus",
+      "lesson": "Early-stage focus often means abandoning interesting ideas that do not compound into the core.",
+      "tags": [
+        "management_reflection",
+        "focus",
+        "simplifying",
+        "business_model"
+      ],
+      "source_url": "https://www.paypal.com/us/webapps/mpp/about",
+      "source_name": "PayPal"
+    },
+    {
+      "id": "square_cash_app_expansion",
+      "title": "Square expanded from card readers into Cash App and merchant ecosystem",
+      "company": "Block",
+      "years": "2010s-2020s",
+      "phase": "platform expansion",
+      "lesson": "A point solution can become an ecosystem when leadership follows adjacent jobs-to-be-done.",
+      "tags": [
+        "management_reflection",
+        "platform",
+        "business_model",
+        "scaling"
+      ],
+      "source_url": "https://block.xyz/about",
+      "source_name": "Block"
+    },
+    {
+      "id": "spotify_music_streaming",
+      "title": "Spotify scaled streaming around subscriptions and recommendations",
+      "company": "Spotify",
+      "years": "2008-2020s",
+      "phase": "business model creation",
+      "lesson": "A new model can align customers, rights holders, and data only after years of operating-system work.",
+      "tags": [
+        "management_reflection",
+        "business_model",
+        "scaling",
+        "platform"
+      ],
+      "source_url": "https://newsroom.spotify.com/company-info/",
+      "source_name": "Spotify"
+    },
+    {
+      "id": "spotify_podcasting_bet",
+      "title": "Spotify made a major push into podcasting and audio formats",
+      "company": "Spotify",
+      "years": "2019-2020s",
+      "phase": "adjacent expansion",
+      "lesson": "Exploration bets need discipline because adjacency can either strengthen or distract from the core.",
+      "tags": [
+        "management_reflection",
+        "exploration",
+        "company_phase_alignment",
+        "platform"
+      ],
+      "source_url": "https://newsroom.spotify.com/2020-02-05/spotify-to-acquire-the-ringer/",
+      "source_name": "Spotify"
+    },
+    {
+      "id": "tiktok_short_video",
+      "title": "TikTok scaled short-form algorithmic video globally",
+      "company": "TikTok",
+      "years": "2018-2020s",
+      "phase": "category disruption",
+      "lesson": "A product can change a market when distribution logic changes faster than incumbent content logic.",
+      "tags": [
+        "management_reflection",
+        "scaling",
+        "category_creation",
+        "customer_focus"
+      ],
+      "source_url": "https://www.tiktok.com/about",
+      "source_name": "TikTok"
+    },
+    {
+      "id": "instagram_stories_reels",
+      "title": "Instagram adapted to Stories and Reels formats",
+      "company": "Instagram",
+      "years": "2016-2020s",
+      "phase": "competitive adaptation",
+      "lesson": "Mature products sometimes defend relevance by adopting new user behaviors before they harden elsewhere.",
+      "tags": [
+        "management_reflection",
+        "reinvention",
+        "customer_focus",
+        "platform"
+      ],
+      "source_url": "https://about.instagram.com/features/stories",
+      "source_name": "Instagram"
+    },
+    {
+      "id": "linkedin_microsoft_acquisition",
+      "title": "LinkedIn scaled inside Microsoft while keeping professional-network focus",
+      "company": "LinkedIn",
+      "years": "2016-2020s",
+      "phase": "integration",
+      "lesson": "Acquisitions work better when the parent strengthens distribution without smothering the acquired operating model.",
+      "tags": [
+        "management_reflection",
+        "scaling",
+        "structure",
+        "platform"
+      ],
+      "source_url": "https://news.microsoft.com/2016/06/13/microsoft-to-acquire-linkedin/",
+      "source_name": "Microsoft"
+    },
+    {
+      "id": "nytimes_digital_subscription",
+      "title": "The New York Times shifted toward digital subscriptions",
+      "company": "The New York Times",
+      "years": "2011-2020s",
+      "phase": "business model pivot",
+      "lesson": "A legacy brand can regain control when it rebuilds the revenue model around direct audience relationships.",
+      "tags": [
+        "management_reflection",
+        "business_model",
+        "digital_transformation",
+        "customer_focus"
+      ],
+      "source_url": "https://www.nytco.com/company/history/",
+      "source_name": "The New York Times Company"
+    },
+    {
+      "id": "washington_post_arc",
+      "title": "The Washington Post invested in digital publishing technology",
+      "company": "The Washington Post",
+      "years": "2013-2020s",
+      "phase": "digital transformation",
+      "lesson": "A media company can turn internal publishing capability into a productized technology asset.",
+      "tags": [
+        "management_reflection",
+        "digital_transformation",
+        "platform",
+        "operations"
+      ],
+      "source_url": "https://www.arcxp.com/about-us/",
+      "source_name": "Arc XP"
+    },
+    {
+      "id": "wsj_paywall",
+      "title": "The Wall Street Journal maintained a paid digital model",
+      "company": "The Wall Street Journal",
+      "years": "1990s-2020s",
+      "phase": "business model discipline",
+      "lesson": "Strategic discipline can mean refusing the popular free model when the customer value supports payment.",
+      "tags": [
+        "management_reflection",
+        "business_model",
+        "customer_focus",
+        "optimization"
+      ],
+      "source_url": "https://www.dowjones.com/professional/factiva/wsj/",
+      "source_name": "Dow Jones"
+    },
+    {
+      "id": "nike_dtc",
+      "title": "Nike shifted more emphasis to direct-to-consumer channels",
+      "company": "Nike",
+      "years": "2017-2020s",
+      "phase": "channel shift",
+      "lesson": "Owning the customer relationship changes data, margin, brand experience, and operating requirements at once.",
+      "tags": [
+        "management_reflection",
+        "business_model",
+        "customer_focus",
+        "digital_transformation"
+      ],
+      "source_url": "https://about.nike.com/en/newsroom/releases/nike-consumer-direct-offense",
+      "source_name": "Nike"
+    },
+    {
+      "id": "adidas_yeezy_risk",
+      "title": "Adidas faced concentration risk around Yeezy",
+      "company": "Adidas",
+      "years": "2022-2024",
+      "phase": "risk reset",
+      "lesson": "A high-performing partnership can become a strategic risk when growth depends too heavily on one external asset.",
+      "tags": [
+        "management_reflection",
+        "risk",
+        "company_phase_alignment",
+        "optimization"
+      ],
+      "source_url": "https://www.adidas-group.com/en/media/press-releases/",
+      "source_name": "Adidas"
+    },
+    {
+      "id": "lululemon_community",
+      "title": "Lululemon scaled through community-led brand building",
+      "company": "Lululemon",
+      "years": "2000s-2020s",
+      "phase": "brand scaling",
+      "lesson": "A premium brand can scale when community and product experience reinforce each other.",
+      "tags": [
+        "management_reflection",
+        "scaling",
+        "customer_focus",
+        "culture"
+      ],
+      "source_url": "https://corporate.lululemon.com/our-impact/our-ambassadors",
+      "source_name": "Lululemon"
+    },
+    {
+      "id": "patagonia_purpose",
+      "title": "Patagonia made environmental purpose central to brand strategy",
+      "company": "Patagonia",
+      "years": "2000s-2020s",
+      "phase": "purpose-led strategy",
+      "lesson": "Purpose can be strategic when it drives hard operating choices, not just messaging.",
+      "tags": [
+        "management_reflection",
+        "culture",
+        "strategy",
+        "customer_focus"
+      ],
+      "source_url": "https://www.patagonia.com/ownership/",
+      "source_name": "Patagonia"
+    },
+    {
+      "id": "ikea_digital_retail",
+      "title": "IKEA adapted store-led retail for ecommerce and services",
+      "company": "IKEA",
+      "years": "2010s-2020s",
+      "phase": "digital transformation",
+      "lesson": "A physical retail model can evolve when digital is integrated into the customer journey instead of treated as a side channel.",
+      "tags": [
+        "management_reflection",
+        "digital_transformation",
+        "customer_focus",
+        "operations"
+      ],
+      "source_url": "https://www.ikea.com/global/en/our-business/",
+      "source_name": "IKEA"
+    },
+    {
+      "id": "mcdonalds_digital_ops",
+      "title": "McDonald's invested in digital ordering, delivery, and drive-thru operations",
+      "company": "McDonald's",
+      "years": "2010s-2020s",
+      "phase": "operational modernization",
+      "lesson": "A mature operating model can still compound when technology improves speed, convenience, and throughput.",
+      "tags": [
+        "management_reflection",
+        "operations",
+        "optimization",
+        "scaling"
+      ],
+      "source_url": "https://corporate.mcdonalds.com/corpmcd/our-stories/article/Accelerating-the-Arches.html",
+      "source_name": "McDonald's"
+    },
+    {
+      "id": "chipotle_food_safety_recovery",
+      "title": "Chipotle rebuilt after food-safety crises and later scaled digital ordering",
+      "company": "Chipotle",
+      "years": "2015-2020s",
+      "phase": "recovery",
+      "lesson": "Trust recovery requires operating discipline before brand momentum can return.",
+      "tags": [
+        "management_reflection",
+        "turnaround",
+        "operations",
+        "customer_focus"
+      ],
+      "source_url": "https://newsroom.chipotle.com/",
+      "source_name": "Chipotle"
+    },
+    {
+      "id": "tacobell_menu_innovation",
+      "title": "Taco Bell used menu innovation and brand voice to stay culturally relevant",
+      "company": "Taco Bell",
+      "years": "2010s-2020s",
+      "phase": "brand reinvention",
+      "lesson": "Mature brands can refresh demand when product innovation and cultural voice move together.",
+      "tags": [
+        "management_reflection",
+        "customer_focus",
+        "innovation",
+        "scaling"
+      ],
+      "source_url": "https://www.tacobell.com/news",
+      "source_name": "Taco Bell"
+    },
+    {
+      "id": "burgerking_3g_zero_based",
+      "title": "Burger King used cost discipline and refranchising under 3G Capital",
+      "company": "Burger King",
+      "years": "2010s",
+      "phase": "optimization",
+      "lesson": "Operational tightening can improve economics, but it changes the kind of leadership work required.",
+      "tags": [
+        "management_reflection",
+        "optimization",
+        "tightening",
+        "business_model"
+      ],
+      "source_url": "https://www.rbi.com/English/about-us/default.aspx",
+      "source_name": "Restaurant Brands International"
+    },
+    {
+      "id": "crocs_comeback",
+      "title": "Crocs turned a polarizing product into a comeback brand",
+      "company": "Crocs",
+      "years": "2017-2020s",
+      "phase": "brand reinvention",
+      "lesson": "A brand weakness can become an advantage when leaders lean into distinctiveness instead of hiding it.",
+      "tags": [
+        "management_reflection",
+        "reinvention",
+        "customer_focus",
+        "brand"
+      ],
+      "source_url": "https://investors.crocs.com/",
+      "source_name": "Crocs"
+    },
+    {
+      "id": "old_spice_rebrand",
+      "title": "Old Spice revived relevance with a sharp brand repositioning",
+      "company": "Old Spice",
+      "years": "2010s",
+      "phase": "brand reinvention",
+      "lesson": "A legacy product can find new growth when the audience definition changes.",
+      "tags": [
+        "management_reflection",
+        "reinvention",
+        "customer_focus",
+        "brand"
+      ],
+      "source_url": "https://news.pg.com/news-releases/news-details/2010/Old-Spice-Smell-Like-A-Man-Man-Campaign-Becomes-A-Phenomenon/default.aspx",
+      "source_name": "P&G"
+    },
+    {
+      "id": "dollar_shave_club_dtc",
+      "title": "Dollar Shave Club challenged razor incumbents with DTC simplicity",
+      "company": "Dollar Shave Club",
+      "years": "2011-2016",
+      "phase": "market entry",
+      "lesson": "A simpler business model can expose where incumbents overbuilt the customer experience.",
+      "tags": [
+        "management_reflection",
+        "business_model",
+        "customer_focus",
+        "simplifying"
+      ],
+      "source_url": "https://www.unilever.com/news/press-and-media/press-releases/2016/unilever-to-acquire-dollar-shave-club/",
+      "source_name": "Unilever"
+    },
+    {
+      "id": "warby_parker_dtc",
+      "title": "Warby Parker brought DTC logic to eyewear",
+      "company": "Warby Parker",
+      "years": "2010s",
+      "phase": "market entry",
+      "lesson": "Removing friction in a stale buying experience can be enough to create a new category conversation.",
+      "tags": [
+        "management_reflection",
+        "business_model",
+        "customer_focus",
+        "digital_transformation"
+      ],
+      "source_url": "https://www.warbyparker.com/history",
+      "source_name": "Warby Parker"
+    },
+    {
+      "id": "peloton_right_sizing",
+      "title": "Peloton shifted from pandemic hypergrowth to restructuring",
+      "company": "Peloton",
+      "years": "2021-2024",
+      "phase": "tightening",
+      "lesson": "Demand spikes can disguise whether the operating model is built for durable scale.",
+      "tags": [
+        "management_reflection",
+        "tightening",
+        "company_phase_alignment",
+        "operations"
+      ],
+      "source_url": "https://investor.onepeloton.com/news-releases",
+      "source_name": "Peloton"
+    },
+    {
+      "id": "nintendo_switch",
+      "title": "Nintendo rebounded with the Switch after Wii U struggles",
+      "company": "Nintendo",
+      "years": "2017-2020s",
+      "phase": "product reinvention",
+      "lesson": "A product comeback can come from recombining strengths rather than copying the dominant category logic.",
+      "tags": [
+        "management_reflection",
+        "reinvention",
+        "customer_focus",
+        "focus"
+      ],
+      "source_url": "https://www.nintendo.co.jp/ir/en/finance/hard_soft/index.html",
+      "source_name": "Nintendo"
+    },
+    {
+      "id": "sony_playstation_network",
+      "title": "Sony built PlayStation into a networked entertainment platform",
+      "company": "Sony",
+      "years": "2000s-2020s",
+      "phase": "platform scaling",
+      "lesson": "Hardware businesses can deepen resilience by building services, networks, and recurring engagement around devices.",
+      "tags": [
+        "management_reflection",
+        "platform",
+        "scaling",
+        "business_model"
+      ],
+      "source_url": "https://www.sie.com/en/corporate.html",
+      "source_name": "Sony Interactive Entertainment"
+    },
+    {
+      "id": "disney_iger_ip_flywheel",
+      "title": "Disney expanded its IP flywheel through Pixar, Marvel, Lucasfilm, and streaming",
+      "company": "Disney",
+      "years": "2006-2020s",
+      "phase": "portfolio strategy",
+      "lesson": "Strategic acquisitions work when they strengthen a coherent operating flywheel rather than just adding assets.",
+      "tags": [
+        "management_reflection",
+        "scaling",
+        "strategy",
+        "platform"
+      ],
+      "source_url": "https://thewaltdisneycompany.com/about/",
+      "source_name": "Disney"
+    },
+    {
+      "id": "marvel_studios_shared_universe",
+      "title": "Marvel Studios built a shared cinematic universe",
+      "company": "Marvel Studios",
+      "years": "2008-2019",
+      "phase": "model innovation",
+      "lesson": "A portfolio can compound when each product strengthens the next product's context.",
+      "tags": [
+        "management_reflection",
+        "platform",
+        "scaling",
+        "strategy"
+      ],
+      "source_url": "https://www.marvel.com/movies",
+      "source_name": "Marvel"
+    },
+    {
+      "id": "ford_one_ford",
+      "title": "Alan Mulally's One Ford plan simplified Ford's global operating model",
+      "company": "Ford",
+      "years": "2006-2014",
+      "phase": "turnaround",
+      "lesson": "A simple operating mantra can matter when it forces leaders to stop optimizing local silos.",
+      "tags": [
+        "management_reflection",
+        "turnaround",
+        "simplifying",
+        "operations"
+      ],
+      "source_url": "https://corporate.ford.com/about/history.html",
+      "source_name": "Ford"
+    },
+    {
+      "id": "ford_electric_mobility",
+      "title": "Ford reorganized around Ford Blue, Model e, and Pro",
+      "company": "Ford",
+      "years": "2022-2020s",
+      "phase": "structure change",
+      "lesson": "Legacy and future businesses may need different operating models under the same company.",
+      "tags": [
+        "management_reflection",
+        "company_phase_alignment",
+        "structure",
+        "reinvention"
+      ],
+      "source_url": "https://media.ford.com/content/fordmedia/fna/us/en/news/2022/03/02/ford-model-e-ford-blue.html",
+      "source_name": "Ford"
+    },
+    {
+      "id": "gm_ev_cruise_reset",
+      "title": "GM pushed into EVs and autonomous vehicles while managing core auto economics",
+      "company": "General Motors",
+      "years": "2010s-2020s",
+      "phase": "future bet",
+      "lesson": "Exploration bets need governance that acknowledges uncertainty without ignoring core-business constraints.",
+      "tags": [
+        "management_reflection",
+        "exploration",
+        "company_phase_alignment",
+        "operations"
+      ],
+      "source_url": "https://news.gm.com/home.detail.html/Pages/news/us/en/2021/jan/0112-ev.html",
+      "source_name": "General Motors"
+    },
+    {
+      "id": "tesla_direct_ev",
+      "title": "Tesla combined EV technology, direct sales, and software-led updates",
+      "company": "Tesla",
+      "years": "2010s-2020s",
+      "phase": "category creation",
+      "lesson": "Changing the product may require changing distribution, service, and software rhythms too.",
+      "tags": [
+        "management_reflection",
+        "reinvention",
+        "business_model",
+        "platform"
+      ],
+      "source_url": "https://www.tesla.com/about",
+      "source_name": "Tesla"
+    },
+    {
+      "id": "toyota_hybrid_prius",
+      "title": "Toyota's Prius made hybrid technology mainstream",
+      "company": "Toyota",
+      "years": "1997-2010s",
+      "phase": "technology bet",
+      "lesson": "Operationally conservative companies can still make bold technology bets when they fit long-term capability.",
+      "tags": [
+        "management_reflection",
+        "exploration",
+        "operations",
+        "innovation"
+      ],
+      "source_url": "https://global.toyota/en/prius20th/innovation/",
+      "source_name": "Toyota"
+    },
+    {
+      "id": "hyundai_genesis_quality",
+      "title": "Hyundai moved upmarket through quality improvements and Genesis",
+      "company": "Hyundai",
+      "years": "2000s-2020s",
+      "phase": "brand elevation",
+      "lesson": "Moving upmarket requires product quality, brand patience, and channel discipline together.",
+      "tags": [
+        "management_reflection",
+        "scaling",
+        "customer_focus",
+        "brand"
+      ],
+      "source_url": "https://www.genesis.com/worldwide/en/brand/brand-overview.html",
+      "source_name": "Genesis"
+    },
+    {
+      "id": "zara_fast_fashion_ops",
+      "title": "Zara built fast fashion around responsive supply-chain operations",
+      "company": "Zara",
+      "years": "1990s-2020s",
+      "phase": "operating model",
+      "lesson": "Speed can be a strategy when the whole operating system is designed around response time.",
+      "tags": [
+        "management_reflection",
+        "operations",
+        "scaling",
+        "customer_focus"
+      ],
+      "source_url": "https://www.inditex.com/itxcomweb/en/group/history",
+      "source_name": "Inditex"
+    },
+    {
+      "id": "unilever_sustainable_living",
+      "title": "Unilever tied strategy to sustainability and portfolio choices",
+      "company": "Unilever",
+      "years": "2010s",
+      "phase": "strategy reset",
+      "lesson": "Purpose-led strategy has to show up in portfolio and operating choices, not only messaging.",
+      "tags": [
+        "management_reflection",
+        "strategy",
+        "culture",
+        "operations"
+      ],
+      "source_url": "https://www.unilever.com/planet-and-society/sustainability-reporting-centre/",
+      "source_name": "Unilever"
+    },
+    {
+      "id": "pg_connect_develop",
+      "title": "P&G opened innovation through Connect + Develop",
+      "company": "Procter & Gamble",
+      "years": "2000s",
+      "phase": "innovation model",
+      "lesson": "Innovation capacity can expand when leaders stop assuming all good ideas must originate inside the company.",
+      "tags": [
+        "management_reflection",
+        "exploration",
+        "innovation",
+        "culture"
+      ],
+      "source_url": "https://us.pg.com/blogs/connect-develop/",
+      "source_name": "P&G"
+    },
+    {
+      "id": "dbs_digital_bank",
+      "title": "DBS repositioned itself as a digital bank",
+      "company": "DBS Bank",
+      "years": "2010s-2020s",
+      "phase": "digital transformation",
+      "lesson": "Digital transformation becomes credible when a legacy institution changes internal operating cadence, not just apps.",
+      "tags": [
+        "management_reflection",
+        "digital_transformation",
+        "operations",
+        "culture"
+      ],
+      "source_url": "https://www.dbs.com/about-us/who-we-are/our-awards-accolades/default.page",
+      "source_name": "DBS"
+    },
+    {
+      "id": "ing_agile_bank",
+      "title": "ING adopted agile ways of working in banking",
+      "company": "ING",
+      "years": "2015-2020s",
+      "phase": "operating model change",
+      "lesson": "Agile transformation is really an operating-model change, not a ceremony change.",
+      "tags": [
+        "management_reflection",
+        "operations",
+        "culture",
+        "structure"
+      ],
+      "source_url": "https://www.ing.com/Newsroom/News/INGs-agile-way-of-working.htm",
+      "source_name": "ING"
+    },
+    {
+      "id": "capitalone_cloud",
+      "title": "Capital One moved heavily into cloud and software engineering practices",
+      "company": "Capital One",
+      "years": "2010s-2020s",
+      "phase": "technology transformation",
+      "lesson": "A bank can compete like a technology company only when engineering becomes core operating capability.",
+      "tags": [
+        "management_reflection",
+        "digital_transformation",
+        "cloud",
+        "operations"
+      ],
+      "source_url": "https://www.capitalone.com/tech/cloud/",
+      "source_name": "Capital One"
+    },
+    {
+      "id": "jpmorgan_tech_investment",
+      "title": "JPMorgan Chase invested heavily in technology and digital banking",
+      "company": "JPMorgan Chase",
+      "years": "2010s-2020s",
+      "phase": "technology scaling",
+      "lesson": "In mature industries, technology investment can become a scale defense rather than a side function.",
+      "tags": [
+        "management_reflection",
+        "scaling",
+        "digital_transformation",
+        "operations"
+      ],
+      "source_url": "https://www.jpmorganchase.com/technology",
+      "source_name": "JPMorgan Chase"
+    },
+    {
+      "id": "goldman_marcus_caution",
+      "title": "Goldman's Marcus showed the difficulty of consumer-banking expansion",
+      "company": "Goldman Sachs",
+      "years": "2016-2023",
+      "phase": "adjacent expansion caution",
+      "lesson": "Adjacency is not automatically fit; new customer segments can demand different economics and operating muscle.",
+      "tags": [
+        "management_reflection",
+        "exploration",
+        "company_phase_alignment",
+        "cautionary"
+      ],
+      "source_url": "https://www.goldmansachs.com/media-relations/press-releases/2016/marcus-by-goldman-sachs",
+      "source_name": "Goldman Sachs"
+    },
+    {
+      "id": "nokia_smartphone_caution",
+      "title": "Nokia struggled to respond to the smartphone platform shift",
+      "company": "Nokia",
+      "years": "2007-2013",
+      "phase": "disruption caution",
+      "lesson": "Execution strength in the old phase can become a liability when the market changes the basis of competition.",
+      "tags": [
+        "management_reflection",
+        "cautionary",
+        "company_phase_alignment",
+        "reinvention"
+      ],
+      "source_url": "https://www.nokia.com/about-us/company/our-history/",
+      "source_name": "Nokia"
+    },
+    {
+      "id": "blackberry_platform_caution",
+      "title": "BlackBerry lost ground as smartphones shifted toward app ecosystems",
+      "company": "BlackBerry",
+      "years": "2007-2016",
+      "phase": "disruption caution",
+      "lesson": "A strong enterprise niche can collapse if leaders miss the broader platform shift.",
+      "tags": [
+        "management_reflection",
+        "cautionary",
+        "platform",
+        "reinvention"
+      ],
+      "source_url": "https://www.blackberry.com/us/en/company/about-us",
+      "source_name": "BlackBerry"
+    },
+    {
+      "id": "kodak_digital_caution",
+      "title": "Kodak failed to convert digital imaging invention into business-model reinvention",
+      "company": "Kodak",
+      "years": "1990s-2012",
+      "phase": "disruption caution",
+      "lesson": "Knowing the future technology is not enough if the organization cannot leave the old profit model.",
+      "tags": [
+        "management_reflection",
+        "cautionary",
+        "business_model",
+        "reinvention"
+      ],
+      "source_url": "https://www.kodak.com/en/company/page/history/",
+      "source_name": "Kodak"
+    },
+    {
+      "id": "blockbuster_netflix_caution",
+      "title": "Blockbuster protected store economics while Netflix changed the model",
+      "company": "Blockbuster",
+      "years": "2000s-2010",
+      "phase": "disruption caution",
+      "lesson": "Optimizing the current model can be fatal when customer behavior has already moved on.",
+      "tags": [
+        "management_reflection",
+        "cautionary",
+        "optimization",
+        "business_model"
+      ],
+      "source_url": "https://www.business.com/articles/digital-disrupt-what-we-can-all-learn-from-the-netflix-model/",
+      "source_name": "business.com"
+    },
+    {
+      "id": "nokia_network_refocus",
+      "title": "Nokia refocused around network infrastructure after phones",
+      "company": "Nokia",
+      "years": "2010s-2020s",
+      "phase": "refocus",
+      "lesson": "After losing one market, a company can still survive by finding the capability that remains strategically relevant.",
+      "tags": [
+        "management_reflection",
+        "turnaround",
+        "focus",
+        "company_phase_alignment"
+      ],
+      "source_url": "https://www.nokia.com/about-us/company/our-history/",
+      "source_name": "Nokia"
+    },
+    {
+      "id": "ericsson_5g_focus",
+      "title": "Ericsson concentrated on telecom infrastructure and 5G leadership",
+      "company": "Ericsson",
+      "years": "2010s-2020s",
+      "phase": "focus",
+      "lesson": "A mature technology company can regain clarity by concentrating on the infrastructure layer it understands best.",
+      "tags": [
+        "management_reflection",
+        "focus",
+        "optimization",
+        "platform"
+      ],
+      "source_url": "https://www.ericsson.com/en/about-us/history",
+      "source_name": "Ericsson"
+    },
+    {
+      "id": "philips_healthtech_shift",
+      "title": "Philips shifted from diversified electronics toward health technology",
+      "company": "Philips",
+      "years": "2010s-2020s",
+      "phase": "portfolio refocus",
+      "lesson": "Portfolio strategy is often a decision about what kind of company leadership wants to operate.",
+      "tags": [
+        "management_reflection",
+        "focus",
+        "portfolio",
+        "reinvention"
+      ],
+      "source_url": "https://www.philips.com/a-w/about/company/our-history.html",
+      "source_name": "Philips"
+    },
+    {
+      "id": "ge_breakup",
+      "title": "GE moved from conglomerate model toward focused public companies",
+      "company": "GE",
+      "years": "2021-2024",
+      "phase": "portfolio simplification",
+      "lesson": "The structure that once created scale can later obscure accountability and strategic focus.",
+      "tags": [
+        "management_reflection",
+        "simplifying",
+        "structure",
+        "portfolio"
+      ],
+      "source_url": "https://www.ge.com/news/press-releases/ge-announces-plan-form-three-independent-public-companies",
+      "source_name": "GE"
+    },
+    {
+      "id": "siemens_industry_software",
+      "title": "Siemens built industrial software and digital-twin capability",
+      "company": "Siemens",
+      "years": "2010s-2020s",
+      "phase": "digital transformation",
+      "lesson": "Industrial incumbents can digitize by turning domain knowledge into software capability.",
+      "tags": [
+        "management_reflection",
+        "digital_transformation",
+        "platform",
+        "operations"
+      ],
+      "source_url": "https://www.siemens.com/global/en/company/about/history.html",
+      "source_name": "Siemens"
+    },
+    {
+      "id": "maersk_integrated_logistics",
+      "title": "Maersk moved from shipping line toward integrated logistics",
+      "company": "Maersk",
+      "years": "2016-2020s",
+      "phase": "business model expansion",
+      "lesson": "A company can expand from asset ownership into customer workflow ownership when it understands the operating chain.",
+      "tags": [
+        "management_reflection",
+        "business_model",
+        "operations",
+        "scaling"
+      ],
+      "source_url": "https://www.maersk.com/about",
+      "source_name": "Maersk"
+    },
+    {
+      "id": "john_deere_precision_ag",
+      "title": "John Deere turned machinery into precision agriculture platforms",
+      "company": "John Deere",
+      "years": "2010s-2020s",
+      "phase": "digital platform",
+      "lesson": "Hardware companies can create new value when machines become data-generating operating platforms.",
+      "tags": [
+        "management_reflection",
+        "platform",
+        "digital_transformation",
+        "operations"
+      ],
+      "source_url": "https://www.deere.com/en/technology-products/precision-ag-technology/",
+      "source_name": "John Deere"
+    },
+    {
+      "id": "caterpillar_services",
+      "title": "Caterpillar expanded equipment services and digital monitoring",
+      "company": "Caterpillar",
+      "years": "2010s-2020s",
+      "phase": "services expansion",
+      "lesson": "Product companies can deepen resilience by managing uptime and outcomes, not only selling assets.",
+      "tags": [
+        "management_reflection",
+        "business_model",
+        "operations",
+        "services"
+      ],
+      "source_url": "https://www.caterpillar.com/en/company/strategy.html",
+      "source_name": "Caterpillar"
+    },
+    {
+      "id": "rollsroyce_power_by_hour",
+      "title": "Rolls-Royce pioneered power-by-the-hour service economics",
+      "company": "Rolls-Royce",
+      "years": "1990s-2020s",
+      "phase": "service model",
+      "lesson": "Outcome-based models change what the company has to measure, manage, and maintain.",
+      "tags": [
+        "management_reflection",
+        "business_model",
+        "services",
+        "operations"
+      ],
+      "source_url": "https://www.rolls-royce.com/products-and-services/civil-aerospace/services/totalcare.aspx",
+      "source_name": "Rolls-Royce"
+    },
+    {
+      "id": "michelin_services",
+      "title": "Michelin expanded from tires into fleet and mobility services",
+      "company": "Michelin",
+      "years": "2000s-2020s",
+      "phase": "services expansion",
+      "lesson": "A product leader can grow by helping customers manage the economics around the product.",
+      "tags": [
+        "management_reflection",
+        "business_model",
+        "services",
+        "customer_focus"
+      ],
+      "source_url": "https://www.michelin.com/en/group/activities/services-solutions/",
+      "source_name": "Michelin"
+    },
+    {
+      "id": "cocacola_refranchising",
+      "title": "Coca-Cola refranchised bottling operations to focus on brand and concentrate economics",
+      "company": "Coca-Cola",
+      "years": "2010s",
+      "phase": "portfolio optimization",
+      "lesson": "Operational control is not always strategic control; leaders can simplify by owning the layer where they create most value.",
+      "tags": [
+        "management_reflection",
+        "optimization",
+        "simplifying",
+        "business_model"
+      ],
+      "source_url": "https://www.coca-colacompany.com/about-us/history",
+      "source_name": "The Coca-Cola Company"
+    }
+  ]
+}

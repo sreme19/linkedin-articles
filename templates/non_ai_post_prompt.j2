@@ -1,13 +1,51 @@
 PERSONA AND VOICE:
 {{ persona }}
 
+{% if editorial %}
+EDITORIAL MEMORY:
+Post mode: {{ editorial.post_mode }}
+
+Global rules:
+{% for rule in editorial.global_rules %}
+- {{ rule }}
+{% endfor %}
+
+Mode-specific rules:
+{% for rule in editorial.mode_rules %}
+- {{ rule }}
+{% endfor %}
+
+{% if editorial.repeat_warnings %}
+Repeat warnings:
+{% for warning in editorial.repeat_warnings %}
+- {{ warning }}
+{% endfor %}
+Avoid these conceptual territories unless the new angle is meaningfully different.
+{% endif %}
+
+{% if editorial.approved_examples %}
+What worked in recent approved final posts:
+{% for example in editorial.approved_examples %}
+- {{ example.id }}: {{ example.why_it_worked | join("; ") }}
+{% endfor %}
+{% endif %}
+
+{% if editorial.public_examples %}
+Safe public examples you may use if they fit:
+{% for example in editorial.public_examples %}
+- {{ example.title }} ({{ example.company }}, {{ example.years }}): {{ example.lesson }}
+{% endfor %}
+Use at most one public example. Do not imply it is connected to the private notes.
+{% endif %}
+{% endif %}
+
 ---
 Write a LinkedIn post from private meeting notes and long-term work observations.
 
 AUTHOR CONTEXT:
-- The author has worked in one organization for 8 years.
 - The post should feel like earned professional reflection, not a conference recap.
 - This is explicitly NOT an AI-focused post unless the sanitized notes naturally contain a broad non-confidential operating lesson about AI.
+- Avoid stating exact tenure unless the user explicitly provides it in the manifest as approved public context.
 
 PRIVACY RULES:
 - Do NOT name or hint at the employer, business unit, client, customer, vendor, product, internal tool, project, program, teammate, leader, or meeting.
@@ -41,16 +79,18 @@ Generalized evidence:
 ---
 POST REQUIREMENTS:
 - Topic: choose the strongest non-AI work lesson from the notes.
-- Open with a lived-in observation that only someone with long tenure would notice.
-- Mention the 8-year context once, naturally.
-- Use 2–3 short paragraphs or 3 concise bullets, whichever fits the idea better.
+- Prefer a strong, generalizable headline or hook that frames the lesson for leaders, managers, or high performers.
+- Open with a lived-in leadership observation that does not depend on private tenure details.
+- If the notes support it, frame the post around company phases such as building, scaling, tightening, simplifying, optimizing, or reinventing.
+- Use a short public business example only when it reinforces the lesson and is safe to name because it is widely known public history.
+- Use 3–6 short paragraphs or a compact headline plus paragraphs, whichever makes the idea land better.
 - Make the lesson useful to people working in product, engineering, data, operations, or leadership.
-- Tone: reflective, direct, calm, specific without being identifying.
-- Length: 120–180 words.
-- No hashtags unless they feel genuinely useful; maximum 4.
+- Tone: reflective, direct, polished, and specific without being identifying.
+- Length: 160–260 words.
+- Include relevant hashtags when they fit; prefer leadership/management/business strategy tags over private-company specifics. Maximum 15.
 - No image prompt.
 
 BANNED:
-"excited to share", "humbled", "my company", "my employer", "at [company]", "game-changer", "paradigm shift", "in today's fast-paced world", "AI is transforming"
+"8 years", "eight years", "excited to share", "humbled", "my company", "my employer", "at [company]", "game-changer", "paradigm shift", "in today's fast-paced world", "AI is transforming"
 
 Write the post now. Return ONLY the post text.

@@ -42,7 +42,7 @@ def generate_content(
         "conference_name": manifest.get("conference_name", "the conference"),
         "conference_date": manifest.get("conference_date", ""),
         "privacy_mode": privacy_mode,
-        "professional_context": manifest.get("professional_context", "8 years in one organization"),
+        "professional_context": manifest.get("professional_context", "long-term leadership experience"),
         "privacy_rules": manifest.get("privacy_rules", []),
         "conference_summary": synthesis.get("conference_summary", ""),
         "themes": synthesis.get("themes", []),
@@ -53,6 +53,7 @@ def generate_content(
         "covered_topics": [t["topic"] for t in synthesis.get("_covered_topics", [])],
         "best_hook": synthesis.get("best_hook", ""),
         "hashtags": _pick_hashtags(hashtags),
+        "editorial": synthesis.get("_editorial", {}),
     }
 
     template = _env.get_template(f"{format_name}_prompt.j2")

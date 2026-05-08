@@ -1,0 +1,45 @@
+{
+  "final_posts": [
+    {
+      "id": "2026-05-08-851640",
+      "date": "2026-05-08",
+      "mode": "management_reflection",
+      "topic": "Company phase alignment",
+      "topic_cluster": "company_phase_alignment",
+      "topic_clusters": [
+        {
+          "id": "company_phase_alignment",
+          "label": "Company Phase Alignment",
+          "hits": [
+            "company phase",
+            "building",
+            "scaling",
+            "tightening",
+            "simplifying"
+          ]
+        }
+      ],
+      "source_generated_file": "data/private_output/2026-05-08_management-refresh/non_ai_post.md",
+      "post_text": "One of the quieter management mistakes is asking every phase of a company to support every kind of ambition.\n\nAfter a long stretch in leadership, I have seen how different the work feels when the business is building, scaling, tightening, or simplifying. The same person can be valuable in all four phases, but not by doing the same job.\n\nWhen the organisation needs focus and operational efficiency, deep exploration can become a distraction. When the organisation needs reinvention, pure optimisation can become drag. Neither mode is morally superior. They just require different energy, different decision rhythms, and different tolerance for uncertainty.\n\nGood leadership is recognising the phase honestly before assigning the work.\n\nSometimes the right move is not to push harder. It is to ask whether the role, the person, and the company phase are still aligned.\n\nWhere do you see leaders confuse optimisation work with exploration work?\n",
+      "notes": "Seeded from user-approved final direction: avoid exact tenure, use company-phase framing, prefer broad leadership thesis and safe public examples.",
+      "checks": {
+        "ok": true,
+        "issues": [],
+        "topic_clusters": [
+          {
+            "id": "company_phase_alignment",
+            "label": "Company Phase Alignment",
+            "hits": [
+              "company phase",
+              "building",
+              "scaling",
+              "tightening",
+              "simplifying"
+            ]
+          }
+        ],
+        "word_count": 148
+      }
+    }
+  ]
+}

@@ -88,6 +88,7 @@ def run(input_path, manifest, fmt, output_dir, no_review, sample, rotate, privac
     from pipeline.format_recommender import recommend_and_confirm
     from pipeline.generate import generate_content
     from pipeline.export import export_run
+    from pipeline.editorial import enrich_synthesis
     from pipeline.privacy import anonymize_artifacts, assert_private_path, private_manifest
 
     # ── Rotate: auto-pick a different conference than last posted ─────────────
@@ -239,6 +240,15 @@ def run(input_path, manifest, fmt, output_dir, no_review, sample, rotate, privac
     else:
         formats = [fmt]
 
+    synthesis = enrich_synthesis(synthesis, manifest_data)
+    editorial = synthesis.get("_editorial", {})
+    if editorial.get("repeat_warnings"):
+        console.print("[yellow]Editorial repeat warnings:[/yellow]")
+        for warning in editorial["repeat_warnings"]:
+            console.print(f"  - {warning}")
+    if editorial.get("post_mode"):
+        console.print(f"Editorial mode: [cyan]{editorial['post_mode']}[/cyan]")
+
     console.print(f"Generating: [cyan]{', '.join(formats)}[/cyan]")
 
     # ── 5. Generate ───────────────────────────────────────────────────────────
@@ -384,6 +394,71 @@ def init():
     console.print(
         "[green]Created manifest.yaml[/green] — edit it with your conference details before running."
     )
+
+
+@cli.command("check-post")
+@click.option("--file", "post_file", required=True, type=click.Path(exists=True), help="Post file to validate.")
+@click.option("--privacy-mode", is_flag=True, default=False, help="Apply private-note risk checks.")
+@click.option(
+    "--mode",
+    default="",
+    type=click.Choice(
+        [
+            "",
+            "management_reflection",
+            "career_transition",
+            "leadership_lesson",
+            "ai_data_practitioner",
+            "public_example_analysis",
+        ],
+        case_sensitive=False,
+    ),
+    help="Editorial post mode for style checks.",
+)
+def check_post(post_file, privacy_mode, mode):
+    """Run privacy, style, and topic-cluster checks on a post draft."""
+    from pipeline.editorial import validate_post_text
+
+    path = Path(post_file)
+    result = validate_post_text(path.read_text(), privacy_mode=privacy_mode, mode=mode)
+    console.print(Panel(json.dumps(result, indent=2), title="[bold blue]Post Checks[/bold blue]"))
+    if not result["ok"]:
+        sys.exit(1)
+
+
+@cli.command("record-final")
+@click.option("--file", "post_file", required=True, type=click.Path(exists=True), help="Final edited post file.")
+@click.option("--generated-file", default="", help="Original generated draft path, if any.")
+@click.option(
+    "--mode",
+    default="management_reflection",
+    type=click.Choice(
+        [
+            "management_reflection",
+            "career_transition",
+            "leadership_lesson",
+            "ai_data_practitioner",
+            "public_example_analysis",
+        ],
+        case_sensitive=False,
+    ),
+    help="Editorial post mode.",
+)
+@click.option("--topic", default="", help="Human-readable topic label.")
+@click.option("--notes", default="", help="What changed or why the final worked.")
+def record_final(post_file, generated_file, mode, topic, notes):
+    """Record a user-approved final post so future runs learn from it."""
+    from pipeline.editorial import record_final_post
+
+    path = Path(post_file)
+    entry = record_final_post(
+        path.read_text(),
+        source_generated_file=generated_file,
+        mode=mode,
+        topic=topic,
+        notes=notes,
+    )
+    console.print(Panel(json.dumps(entry, indent=2), title="[bold green]Recorded Final Post[/bold green]"))
 
 
 @cli.command()

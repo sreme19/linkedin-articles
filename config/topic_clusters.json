@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "clusters": [
+    {
+      "id": "hiring_pipeline_throughput",
+      "label": "Hiring Pipeline Throughput",
+      "keywords": ["hiring", "recruiting", "pipeline", "screening", "candidate", "throughput", "funnel", "open roles"]
+    },
+    {
+      "id": "role_saturation",
+      "label": "Role Saturation",
+      "keywords": ["value saturation", "role saturation", "stops compounding", "same problems", "comfort as commitment", "evolve a role"]
+    },
+    {
+      "id": "succession_redundancy",
+      "label": "Succession and Redundancy",
+      "keywords": ["succession", "redundancy", "handover", "single point", "person-dependent", "steps back", "stall", "continuity"]
+    },
+    {
+      "id": "role_completion_exit",
+      "label": "Role Completion and Exit",
+      "keywords": ["leave a role", "stepping down", "transition", "non-dependency", "make yourself unnecessary", "role is done"]
+    },
+    {
+      "id": "company_phase_alignment",
+      "label": "Company Phase Alignment",
+      "keywords": ["company phase", "building", "scaling", "tightening", "simplifying", "optimisation", "optimization", "exploration", "reinvention", "operational efficiency"]
+    },
+    {
+      "id": "ai_builder_to_validator",
+      "label": "AI Builder to Validator",
+      "keywords": ["builder to validator", "guiding and validating", "AI generates implementation", "human validates", "AI-assisted systems"]
+    },
+    {
+      "id": "decision_ai",
+      "label": "Decision AI",
+      "keywords": ["decision AI", "prescriptive AI", "next action", "optimization problem", "constraints", "decision logic"]
+    },
+    {
+      "id": "analytics_modernization",
+      "label": "Analytics Modernization",
+      "keywords": ["dashboards", "ETL", "data dictionary", "semantic layer", "descriptive analytics", "data practice"]
+    }
+  ]
+}

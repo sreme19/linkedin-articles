@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "global_rules": [
+    "Learn from final user-edited posts more strongly than raw generated drafts.",
+    "Avoid exact private tenure details unless the manifest explicitly marks them as public-safe.",
+    "Prefer a strong headline or hook for management posts.",
+    "Make private-note posts generalizable to leaders, managers, operators, product, engineering, and data audiences.",
+    "Use safe public examples only when they are widely known public history and not adjacent to the private source context.",
+    "Do not reuse the same conceptual territory merely by changing wording."
+  ],
+  "mode_rules": {
+    "management_reflection": [
+      "Lead with a broad leadership thesis, not a diary-style update.",
+      "Company phase language is encouraged: building, scaling, tightening, simplifying, optimizing, reinventing.",
+      "Contrast modes of work when useful, such as exploration vs optimization.",
+      "A short public business example can strengthen the post when it illustrates the management lesson.",
+      "Hashtags may be broader and more numerous than conference posts, up to 15."
+    ],
+    "career_transition": [
+      "Avoid repeating role saturation, succession, handover, and leaving-when-systems-run themes unless requested.",
+      "Focus on reusable leadership principles instead of personal chronology.",
+      "Keep identifying details out of the post."
+    ],
+    "leadership_lesson": [
+      "Frame the lesson as a decision pattern leaders can recognize.",
+      "Use concrete but non-identifying operating language.",
+      "End with a genuine question that invites practitioner discussion."
+    ],
+    "ai_data_practitioner": [
+      "Stay specific about implementation, architecture, evaluation, and operating constraints.",
+      "Avoid generic AI enthusiasm.",
+      "Prefer grounded observations from shipped work or conference evidence."
+    ],
+    "public_example_analysis": [
+      "Use only widely known public examples.",
+      "Name the company or public leader only when the source is public history.",
+      "Tie the example back to the private-note lesson without implying any connection to the private organization."
+    ]
+  },
+  "approved_examples": [
+    {
+      "id": "phase-alignment-apple-jobs-final",
+      "date": "2026-05-08",
+      "mode": "management_reflection",
+      "topic_cluster": "company_phase_alignment",
+      "why_it_worked": [
+        "The headline makes the management thesis clear before the personal reflection.",
+        "Exact private tenure was generalized to a less identifying timeframe.",
+        "The post speaks to a wider leadership audience instead of only describing an internal transition.",
+        "Building, scaling, tightening, and simplifying create a reusable mental model.",
+        "The Steve Jobs and Apple example adds public, recognizable evidence without revealing private details.",
+        "The final question is specific enough to invite real discussion."
+      ],
+      "avoid_next_time": [
+        "Do not say 8 years or eight years.",
+        "Do not over-focus on handover, succession, or single points of failure.",
+        "Do not make the post sound like a private resignation note."
+      ]
+    }
+  ]
+}
